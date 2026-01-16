@@ -14,7 +14,7 @@ const scriptsData = {
         title: "Break a Lucky Block",
         gameId: "124311897657957",
         gameUrl: "https://www.roblox.com/es/games/124311897657957/Break-a-Lucky-Block",
-        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/660d469d6b59e9203d285305b6dda424/raw/b09499d5c13d279c766a38027e864b7dbd5aa8e1/gistfile1.txt"))()',
+        script: `loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/660d469d6b59e9203d285305b6dda424/raw/9634422f87f6627dafeb5a9ad1c0d274c4fe9f21/gistfile1.txt"))()`,
         keySystem: "https://work.ink/2e7s/break-a-lucky-block-key-generator",
         badges: ["NEWEST", "BETA", "KEY REQUIRED", "PC TESTED"],
         badgeClasses: ["badge-new", "badge-beta", "badge-key", "badge-pc"],
@@ -30,7 +30,7 @@ const scriptsData = {
 • Emergency Panic Key (default: P)
 • Useful teleports (Sell, Buy Pickaxe, Trader, Fuse Machine, etc)
 • Key system via work.ink (easy & fast)`,
-        video: null,
+        video: "https://www.youtube.com/watch?v=2q1fD3TnFLM",
         thumbImage: "images/game1-thumb.png",
         previewImage: "images/script1-preview.png"
     },
