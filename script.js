@@ -32,7 +32,7 @@ const scriptsData = {
 • Useful teleports (Sell, Buy Pickaxe, Trader, Fuse Machine, etc)
 • Key system via work.ink (easy & fast)`,
         video: null,
-        thumbImage: null,
+        thumbImage: "images/game1-thumb.png",
         previewImage: "images/script1-preview.png"
     },
     2: {
@@ -58,7 +58,7 @@ const scriptsData = {
 
 ✅ Works: All executors should work. If not, just report in comments.`,
         video: "https://www.youtube.com/watch?v=ZzPSGZT5ayI",
-        thumbImage: null,
+        thumbImage: "images/game2-thumb.png",
         previewImage: "images/script2-preview.png"
     },
     3: {
@@ -76,13 +76,12 @@ const scriptsData = {
 ✅ Works on Xeno and Solara
 ✅ All executors should work`,
         video: null,
-        thumbImage: null,
+        thumbImage: "images/game3-thumb.png",
         previewImage: "images/script3-preview.png"
     }
 };
 
-// Store loaded thumbnails
-const loadedThumbnails = {};
+
 
 // Current script for copying
 let currentScriptCode = '';
@@ -138,9 +137,7 @@ function openModal(scriptId) {
     
     // Set modal content
     document.getElementById('modalTitle').textContent = data.title;
-    // Use loaded thumbnail or preview image
-    const thumbUrl = loadedThumbnails[data.gameId] || data.previewImage;
-    document.getElementById('modalImage').src = thumbUrl;
+    document.getElementById('modalImage').src = data.thumbImage;
     document.getElementById('modalImage').alt = data.title;
     document.getElementById('modalDescription').textContent = data.description;
     document.getElementById('modalScript').textContent = data.script;
@@ -365,69 +362,4 @@ console.log(
     'color: white; font-size: 16px;'
 );
 
-// ============================================
-// Load Roblox Thumbnails (with fallback)
-// ============================================
 
-async function loadRobloxThumbnail(gameId) {
-    try {
-        // Use roproxy.com - a CORS proxy specifically for Roblox APIs
-        // Simply replace roblox.com with roproxy.com in the URL
-        
-        // First get the universe ID from the place ID
-        const universeResponse = await fetch(
-            `https://games.roproxy.com/v1/games/multiget-place-details?placeIds=${gameId}`
-        );
-        
-        if (!universeResponse.ok) throw new Error('Failed to fetch universe');
-        
-        const universeData = await universeResponse.json();
-        if (!universeData[0]) throw new Error('No universe found');
-        
-        const universeId = universeData[0].universeId;
-        
-        // Now get the thumbnail using roproxy
-        const thumbResponse = await fetch(
-            `https://thumbnails.roproxy.com/v1/games/icons?universeIds=${universeId}&size=512x512&format=Png&isCircular=false`
-        );
-        
-        if (!thumbResponse.ok) throw new Error('Failed to fetch thumbnail');
-        
-        const thumbData = await thumbResponse.json();
-        if (thumbData.data && thumbData.data[0]) {
-            return thumbData.data[0].imageUrl;
-        }
-        
-        throw new Error('No thumbnail found');
-    } catch (error) {
-        console.warn(`Could not load thumbnail for game ${gameId}:`, error);
-        return null;
-    }
-}
-
-// Load thumbnails on page load
-document.addEventListener('DOMContentLoaded', async () => {
-    const images = document.querySelectorAll('.card-image.primary-image[data-game-id]');
-    
-    for (const img of images) {
-        const gameId = img.dataset.gameId;
-        if (gameId) {
-            const thumbnailUrl = await loadRobloxThumbnail(gameId);
-            if (thumbnailUrl) {
-                img.src = thumbnailUrl;
-                loadedThumbnails[gameId] = thumbnailUrl;
-            }
-        }
-    }
-});
-
-// ============================================
-// Service Worker Registration (for PWA features)
-// ============================================
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Optional: Register service worker for offline support
-        // navigator.serviceWorker.register('/sw.js');
-    });
-}
