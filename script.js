@@ -14,7 +14,7 @@ const scriptsData = {
         title: "Break a Lucky Block",
         gameId: "124311897657957",
         gameUrl: "https://www.roblox.com/es/games/124311897657957/Break-a-Lucky-Block",
-        script: `loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/660d469d6b59e9203d285305b6dda424/raw/9634422f87f6627dafeb5a9ad1c0d274c4fe9f21/gistfile1.txt"))()`,
+        script: `loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/660d469d6b59e9203d285305b6dda424/raw/c4ff5085f58ced0a2d1d29a62ed096a1c9463152/gistfile1.txt"))()`,
         keySystem: "https://work.ink/2e7s/break-a-lucky-block-key-generator",
         badges: ["NEWEST", "BETA", "KEY REQUIRED", "PC TESTED"],
         badgeClasses: ["badge-new", "badge-beta", "badge-key", "badge-pc"],
