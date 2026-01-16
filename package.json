@@ -1,0 +1,19 @@
+{
+  "name": "elpro-scripts",
+  "version": "1.0.0",
+  "description": "Premium Roblox Scripts Hub - ElPro Scripts Collection",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": [
+    "roblox",
+    "scripts",
+    "gaming",
+    "autofarm"
+  ],
+  "author": "ElPro",
+  "license": "MIT",
+  "private": true
+}
