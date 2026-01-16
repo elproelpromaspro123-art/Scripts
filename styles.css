@@ -804,21 +804,8 @@ body:hover .cursor-glow {
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-normal);
-}
-
-.view-script-btn:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
-}
-
-/* ============================================
-   Help Section
-   ============================================ */
-
-.help-section {
-    padding: var(--space-3xl) var(--space-xl);
-    max-width: 800px;
-    margin: 0 auto;
+     position: relative; /* keep the button above injected overlays */
+     z-index: 1100;
 }
 
 .help-card {
@@ -1242,4 +1229,27 @@ body:hover .cursor-glow {
         font-size: 0.65rem;
         padding: 3px 8px;
     }
+}
+
+/* Prevent Vercel feedback widget from covering the whole page
+   Move it to bottom-right and lower z-index so clicks reach page content */
+vercel-live-feedback {
+    position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: 12px !important;
+    right: 12px !important;
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+}
+
+/* If the widget injects a very large child overlay, make it non-intercepting by default */
+vercel-live-feedback > * {
+    pointer-events: auto !important;
+}
+
+/* Safety: If the widget still covers anything, let clicks pass through the wrapper while keeping inner controls clickable */
+vercel-live-feedback[hidden], vercel-live-feedback[aria-hidden="true"] {
+    pointer-events: none !important;
 }

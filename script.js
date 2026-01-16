@@ -494,3 +494,48 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Try to relocate / reduce z-index of Vercel feedback widget if it is injected and covers the page
+(function adjustVercelFeedback(){
+    let attempts = 0;
+    const maxAttempts = 10;
+    const tryAdjust = () => {
+        const vf = document.querySelector('vercel-live-feedback');
+        if (vf) {
+            // Move to bottom-right and lower z-index so it doesn't sit on top of content
+            vf.style.position = 'fixed';
+            vf.style.top = '';
+            vf.style.left = '';
+            vf.style.bottom = '12px';
+            vf.style.right = '12px';
+            vf.style.zIndex = '1000';
+            vf.style.pointerEvents = 'auto';
+            console.log('Adjusted vercel-live-feedback position to bottom-right');
+            clearInterval(interval);
+        }
+        attempts++;
+        if (attempts >= maxAttempts) clearInterval(interval);
+    };
+    const interval = setInterval(tryAdjust, 500);
+    tryAdjust();
+})();
+
+// One-time diagnostic to see if any `.view-script-btn` is being covered by another element
+(function runOneTimeCoverCheck(){
+    let checked = false;
+    document.addEventListener('click', (e) => {
+        if (checked) return;
+        checked = true;
+        const buttons = document.querySelectorAll('.view-script-btn');
+        buttons.forEach(btn => {
+            const rect = btn.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            if (x < 0 || y < 0 || x > window.innerWidth || y > window.innerHeight) return;
+            const topEl = document.elementFromPoint(x, y);
+            if (topEl && !btn.contains(topEl)) {
+                console.warn('A `.view-script-btn` may be covered by:', topEl, '\nButton element:', btn);
+            }
+        });
+    }, { once: true, capture: true });
+})();
