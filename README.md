@@ -54,6 +54,16 @@ MyWebScripts/
 2. Add a new `<article class="script-card">` in `index.html`
 3. Add preview image to `/images/`
 
+## Monitoring & Analytics
+
+- **Vercel Web Analytics**: Integrated for tracking visitor metrics
+- **Vercel Speed Insights**: Enabled for performance monitoring
+  - Tracks Core Web Vitals (LCP, FID/INP, CLS)
+  - Real user monitoring (RUM)
+  - View performance data at `https://vercel.com/dashboard`
+  
+For detailed setup instructions, see [SPEED_INSIGHTS_SETUP.md](docs/SPEED_INSIGHTS_SETUP.md)
+
 ## Security
 
 - Content Security Policy headers
