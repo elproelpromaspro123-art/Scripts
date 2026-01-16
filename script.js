@@ -3,7 +3,6 @@
 // Security & Functionality
 // ============================================
 
-// Strict mode for security
 'use strict';
 
 // ============================================
@@ -81,23 +80,12 @@ const scriptsData = {
     }
 };
 
-
-
-// Current script for copying
 let currentScriptCode = '';
 
 // ============================================
-// Security Functions
+// Utility Functions
 // ============================================
 
-// Sanitize HTML to prevent XSS
-function sanitizeHTML(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-}
-
-// Validate URL to prevent injection
 function isValidURL(string) {
     try {
         const url = new URL(string);
@@ -114,13 +102,23 @@ function isValidURL(string) {
 document.addEventListener('DOMContentLoaded', () => {
     const cursorGlow = document.querySelector('.cursor-glow');
     
-    if (cursorGlow) {
+    if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+        let mouseX = 0, mouseY = 0;
+        let currentX = 0, currentY = 0;
+        
         document.addEventListener('mousemove', (e) => {
-            requestAnimationFrame(() => {
-                cursorGlow.style.left = e.clientX + 'px';
-                cursorGlow.style.top = e.clientY + 'px';
-            });
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
+        
+        function animateCursor() {
+            currentX += (mouseX - currentX) * 0.1;
+            currentY += (mouseY - currentY) * 0.1;
+            cursorGlow.style.left = currentX + 'px';
+            cursorGlow.style.top = currentY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
     }
 });
 
@@ -133,16 +131,13 @@ function openModal(scriptId) {
     if (!data) return;
     
     const overlay = document.getElementById('modalOverlay');
-    const modal = document.getElementById('scriptModal');
     
-    // Set modal content
     document.getElementById('modalTitle').textContent = data.title;
     document.getElementById('modalImage').src = data.thumbImage;
     document.getElementById('modalImage').alt = data.title;
     document.getElementById('modalDescription').textContent = data.description;
     document.getElementById('modalScript').textContent = data.script;
     
-    // Store current script for copying
     currentScriptCode = data.script;
     
     // Set badges
@@ -155,35 +150,35 @@ function openModal(scriptId) {
         badgesContainer.appendChild(span);
     });
     
-    // Set action buttons
+    // Set action buttons with proper URLs
     const keyBtn = document.getElementById('keySystemBtn');
     const gameLink = document.getElementById('gameLink');
     
-    if (isValidURL(data.keySystem)) {
-        keyBtn.href = data.keySystem;
-    }
+    keyBtn.href = data.keySystem;
+    keyBtn.onclick = (e) => {
+        e.stopPropagation();
+        window.open(data.keySystem, '_blank', 'noopener,noreferrer');
+    };
     
-    if (isValidURL(data.gameUrl)) {
-        gameLink.href = data.gameUrl;
-    }
+    gameLink.href = data.gameUrl;
+    gameLink.onclick = (e) => {
+        e.stopPropagation();
+        window.open(data.gameUrl, '_blank', 'noopener,noreferrer');
+    };
     
     // Set video if available
     const videoSection = document.getElementById('modalVideo');
     const videoLink = document.getElementById('videoLink');
     
-    if (data.video && isValidURL(data.video)) {
+    if (data.video) {
         videoSection.style.display = 'block';
         videoLink.href = data.video;
     } else {
         videoSection.style.display = 'none';
     }
     
-    // Show modal
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
-    
-    // Focus trap for accessibility
-    modal.focus();
 }
 
 function closeModal() {
@@ -192,7 +187,7 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// Close modal on overlay click
+// Close modal on overlay click or escape
 document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('modalOverlay');
     
@@ -205,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Close modal on Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeModal();
@@ -217,149 +211,205 @@ document.addEventListener('keydown', (e) => {
 // ============================================
 
 async function copyScript() {
-    const copyBtn = document.querySelector('.copy-btn');
+    const copyBtn = document.querySelector('.modal .copy-btn');
+    if (!copyBtn) return;
     
     try {
         await navigator.clipboard.writeText(currentScriptCode);
-        
-        // Visual feedback
-        copyBtn.classList.add('copied');
-        copyBtn.querySelector('span').textContent = 'Copied!';
-        
-        setTimeout(() => {
-            copyBtn.classList.remove('copied');
-            copyBtn.querySelector('span').textContent = 'Copy';
-        }, 2000);
-    } catch (err) {
-        // Fallback for older browsers
+        showCopySuccess(copyBtn);
+    } catch {
+        // Fallback
         const textArea = document.createElement('textarea');
         textArea.value = currentScriptCode;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-9999px';
+        textArea.style.cssText = 'position:fixed;left:-9999px';
         document.body.appendChild(textArea);
         textArea.select();
-        
         try {
             document.execCommand('copy');
-            copyBtn.classList.add('copied');
-            copyBtn.querySelector('span').textContent = 'Copied!';
-            
-            setTimeout(() => {
-                copyBtn.classList.remove('copied');
-                copyBtn.querySelector('span').textContent = 'Copy';
-            }, 2000);
+            showCopySuccess(copyBtn);
         } catch {
             copyBtn.querySelector('span').textContent = 'Error';
         }
-        
         document.body.removeChild(textArea);
     }
 }
 
+function showCopySuccess(btn) {
+    btn.classList.add('copied');
+    btn.querySelector('span').textContent = 'Copied!';
+    setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.querySelector('span').textContent = 'Copy';
+    }, 2000);
+}
+
 // ============================================
-// Smooth Scroll for Anchor Links
+// Smooth Scroll (only for internal anchors)
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = this.getAttribute('href');
+            // Only handle internal anchors that start with #
+            if (href && href.startsWith('#') && href.length > 1) {
+                e.preventDefault();
+                const target = document.getElementById(href.substring(1));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         });
     });
 });
 
 // ============================================
-// Intersection Observer for Animations
+// Scroll Animations
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    const cards = document.querySelectorAll('.script-card');
     
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
     
-    // Observe script cards
-    document.querySelectorAll('.script-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-});
-
-// Add visible class styles
-document.addEventListener('DOMContentLoaded', () => {
-    const style = document.createElement('style');
-    style.textContent = `
-        .script-card.visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
+    cards.forEach(card => observer.observe(card));
 });
 
 // ============================================
-// Navbar Scroll Effect
+// Navbar Effects
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
+    if (!navbar) return;
     
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.style.background = 'rgba(10, 10, 15, 0.95)';
-            navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+        if (window.pageYOffset > 50) {
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.background = 'rgba(10, 10, 15, 0.8)';
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('scrolled');
         }
+    }, { passive: true });
+});
+
+// ============================================
+// Particles Background
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('particleCanvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    
+    function createParticles() {
+        particles = [];
+        const count = Math.min(50, Math.floor(window.innerWidth / 30));
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2 + 1,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5,
+                opacity: Math.random() * 0.5 + 0.2
+            });
+        }
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        lastScroll = currentScroll;
+        particles.forEach(p => {
+            p.x += p.speedX;
+            p.y += p.speedY;
+            
+            if (p.x < 0) p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0) p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
+            
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(99, 102, 241, ${p.opacity})`;
+            ctx.fill();
+        });
+        
+        // Draw connections
+        particles.forEach((p1, i) => {
+            particles.slice(i + 1).forEach(p2 => {
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                if (dist < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - dist / 150)})`;
+                    ctx.stroke();
+                }
+            });
+        });
+        
+        animationId = requestAnimationFrame(animate);
+    }
+    
+    resize();
+    createParticles();
+    animate();
+    
+    window.addEventListener('resize', () => {
+        resize();
+        createParticles();
     });
 });
 
 // ============================================
-// Prevent Right-Click on Images (Basic Protection)
+// Card Tilt Effect
 // ============================================
 
-document.addEventListener('contextmenu', (e) => {
-    if (e.target.tagName === 'IMG') {
-        e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(pointer: fine)').matches) {
+        document.querySelectorAll('.script-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
     }
 });
 
 // ============================================
-// Console Protection Message
+// Console Message
 // ============================================
 
-console.log(
-    '%c⚠️ Warning!',
-    'color: red; font-size: 40px; font-weight: bold;'
-);
-console.log(
-    '%cThis is a browser feature intended for developers. If someone told you to paste something here, they are likely trying to scam you.',
-    'color: white; font-size: 16px;'
-);
-
-
+console.log('%c⚡ ElPro Scripts', 'color: #6366f1; font-size: 24px; font-weight: bold;');
+console.log('%cPremium Roblox Scripts Collection', 'color: #888; font-size: 14px;');
