@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' https://cdn.work.ink https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com https://vercel.live; img-src 'self' data: blob: https://vercel.com; connect-src 'self' https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; frame-src https://vercel.live; base-uri 'self'; form-action 'self';"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.work.ink https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com https://vercel.live; img-src 'self' data: blob: https://vercel.com; connect-src 'self' https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live https://ws-*.vercel.live; frame-src https://vercel.live; base-uri 'self'; form-action 'self';"
         },
         {
           "key": "X-Content-Type-Options",

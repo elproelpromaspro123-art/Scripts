@@ -126,29 +126,44 @@ document.addEventListener('DOMContentLoaded', () => {
 // Event Delegation for Modal Buttons
 // ============================================
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Delegate click events for view-script-btn to avoid inline onclick
-    document.addEventListener('click', (e) => {
-        const viewBtn = e.target.closest('.view-script-btn');
-        if (viewBtn) {
-            const scriptId = parseInt(viewBtn.dataset.scriptId, 10);
-            if (!isNaN(scriptId)) {
-                openModal(scriptId);
+// Add click event listener to document (works even before DOMContentLoaded)
+document.addEventListener('click', (e) => {
+    const viewBtn = e.target.closest('.view-script-btn');
+    if (viewBtn) {
+        const scriptId = viewBtn.dataset.scriptId;
+        console.log('View Script clicked:', scriptId);
+        if (scriptId) {
+            const id = parseInt(scriptId, 10);
+            console.log('Parsed ID:', id, 'Valid:', !isNaN(id) && id in scriptsData);
+            if (!isNaN(id) && id in scriptsData) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal(id);
+                return;
             }
         }
-        
-        // Handle modal close button
-        if (e.target.closest('.modal-close')) {
-            closeModal();
-        }
-        
-        // Handle copy button
-        const copyBtn = e.target.closest('.copy-btn');
-        if (copyBtn) {
-            copyScript(copyBtn);
-        }
-    });
-});
+    }
+    
+    // Handle modal close button
+    const closeBtn = e.target.closest('.modal-close');
+    if (closeBtn) {
+        console.log('Close modal clicked');
+        e.preventDefault();
+        e.stopPropagation();
+        closeModal();
+        return;
+    }
+    
+    // Handle copy button
+    const copyBtn = e.target.closest('.copy-btn');
+    if (copyBtn) {
+        console.log('Copy script clicked');
+        e.preventDefault();
+        e.stopPropagation();
+        copyScript(copyBtn);
+        return;
+    }
+}, true); // Use capture phase for reliability
 
 // ============================================
 // Modal Functions
