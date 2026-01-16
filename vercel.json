@@ -1,13 +1,20 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/index.html",
       "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' https://cdn.work.ink https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com https://vercel.live; img-src 'self' data: blob: https://vercel.com; connect-src 'self' https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; frame-src 'none'; base-uri 'self'; form-action 'self';"
+        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
         },
-
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
@@ -19,6 +26,39 @@
         {
           "key": "Permissions-Policy",
           "value": "geolocation=(), microphone=(), camera=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
         }
       ]
     },
