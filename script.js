@@ -477,3 +477,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 console.log('%c⚡ ElPro Scripts', 'color: #6366f1; font-size: 24px; font-weight: bold;');
 console.log('%cPremium Roblox Scripts Collection', 'color: #888; font-size: 14px;');
+
+// Fallback: attach direct click listeners to view buttons in case delegation fails
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.view-script-btn').forEach(btn => {
+        // avoid adding duplicate listeners
+        if (btn.__hasViewListener) return;
+        btn.__hasViewListener = true;
+        btn.addEventListener('click', (e) => {
+            const scriptId = btn.dataset.scriptId;
+            if (!scriptId) return;
+            const id = parseInt(scriptId, 10);
+            if (isNaN(id) || !(id in scriptsData)) return;
+            e.preventDefault();
+            openModal(id);
+        });
+    });
+});
