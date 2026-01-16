@@ -372,12 +372,12 @@ console.log(
 async function loadRobloxThumbnail(gameId) {
     try {
         // Use CORS proxy to bypass CORS restrictions
-        const proxyUrl = 'https://api.allorigins.win/raw?url=';
+        const proxyUrl = 'https://corslol.com/';
         
         // First get the universe ID from the place ID
         const gameUrl = `https://games.roblox.com/v1/games/multiget-place-details?placeIds=${gameId}`;
         const universeResponse = await fetch(
-            encodeURI(proxyUrl + gameUrl)
+            proxyUrl + gameUrl
         );
         
         if (!universeResponse.ok) throw new Error('Failed to fetch universe');
@@ -390,7 +390,7 @@ async function loadRobloxThumbnail(gameId) {
         // Now get the thumbnail
         const thumbUrl = `https://thumbnails.roblox.com/v1/games/icons?universeIds=${universeId}&size=512x512&format=Png&isCircular=false`;
         const thumbResponse = await fetch(
-            encodeURI(proxyUrl + thumbUrl)
+            proxyUrl + thumbUrl
         );
         
         if (!thumbResponse.ok) throw new Error('Failed to fetch thumbnail');
