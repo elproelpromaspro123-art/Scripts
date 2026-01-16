@@ -726,6 +726,11 @@ body:hover .cursor-glow {
     color: white;
 }
 
+.badge-pc {
+    background: rgba(16, 185, 129, 0.9);
+    color: white;
+}
+
 .card-content {
     padding: var(--space-lg);
 }

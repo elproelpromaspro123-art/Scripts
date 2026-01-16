@@ -16,8 +16,8 @@ const scriptsData = {
         gameUrl: "https://www.roblox.com/es/games/124311897657957/Break-a-Lucky-Block",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/660d469d6b59e9203d285305b6dda424/raw/b09499d5c13d279c766a38027e864b7dbd5aa8e1/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/break-a-lucky-block-key-generator",
-        badges: ["NEWEST", "BETA", "KEY REQUIRED"],
-        badgeClasses: ["badge-new", "badge-beta", "badge-key"],
+        badges: ["NEWEST", "BETA", "KEY REQUIRED", "PC TESTED"],
+        badgeClasses: ["badge-new", "badge-beta", "badge-key", "badge-pc"],
         description: `Key Features (BETA):
 
 • Fully underground AutoFarm (completely invisible from surface)
@@ -40,8 +40,8 @@ const scriptsData = {
         gameUrl: "https://www.roblox.com/es/games/5712833750/Animal-Simulator",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/1e39745e7142c4980fbf34792a03c7c2/raw/98f59e9aad6f9a01154ac21bc7fca812c93c96b5/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/animal-simulator-token-generator",
-        badges: ["UPDATED", "CHRISTMAS 🎄", "KEY REQUIRED"],
-        badgeClasses: ["badge-updated", "badge-christmas", "badge-key"],
+        badges: ["UPDATED", "CHRISTMAS 🎄", "KEY REQUIRED", "PC TESTED"],
+        badgeClasses: ["badge-updated", "badge-christmas", "badge-key", "badge-pc"],
         description: `Animal Simulator Christmas Autofarm 2025/2026
 🎄 Rayfield GUI - Updated Jan 2026
 
@@ -66,8 +66,8 @@ const scriptsData = {
         gameUrl: "https://www.roblox.com/es/games/94101948530988/Uma-Racing",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/827c89bc204b31aa8efb77dac8e7d315/raw/330a5f67d98310a004cf322e46346ee8fcb3a1ce/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/key-system",
-        badges: ["SIMPLE", "KEY REQUIRED"],
-        badgeClasses: ["badge-simple", "badge-key"],
+        badges: ["SIMPLE", "KEY REQUIRED", "PC TESTED"],
+        badgeClasses: ["badge-simple", "badge-key", "badge-pc"],
         description: `Uma Racing - Infinite Stamina Script
 
 • Infinite Stamina - Never run out of energy!
