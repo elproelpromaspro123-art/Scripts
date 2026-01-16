@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premium Roblox Scripts Collection - Free scripts with key system for popular Roblox games">
     <meta name="keywords" content="Roblox scripts, autofarm, game scripts, Roblox hacks">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.work.ink https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com https://vercel.live; img-src 'self' data: blob: https://vercel.com; connect-src 'self' https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; frame-src https://vercel.live;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.work.ink https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; style-src 'self' https://fonts.googleapis.com 'nonce-{NONCE}'; font-src https://fonts.gstatic.com https://vercel.live; img-src 'self' data: blob: https://vercel.com; connect-src 'self' https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; frame-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>ElPro Scripts | Premium Roblox Scripts Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -165,7 +169,7 @@
                         <span class="feature-tag">Stealth</span>
                         <span class="feature-tag">Teleports</span>
                     </div>
-                    <button class="view-script-btn" onclick="openModal(1)">
+                    <button class="view-script-btn" data-script-id="1">
                         <span>View Script</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -215,7 +219,7 @@
                         <span class="feature-tag">Boss TPs</span>
                         <span class="feature-tag">Hitbox</span>
                     </div>
-                    <button class="view-script-btn" onclick="openModal(2)">
+                    <button class="view-script-btn" data-script-id="2">
                         <span>View Script</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -262,7 +266,7 @@
                         <span class="feature-tag">Infinite Stamina</span>
                         <span class="feature-tag">All Executors</span>
                     </div>
-                    <button class="view-script-btn" onclick="openModal(3)">
+                    <button class="view-script-btn" data-script-id="3">
                         <span>View Script</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -310,7 +314,7 @@
     <!-- Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal" id="scriptModal">
-            <button class="modal-close" onclick="closeModal()">
+            <button class="modal-close" aria-label="Close modal">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
@@ -329,13 +333,13 @@
                     <h4>Script Code</h4>
                     <div class="code-block">
                         <pre><code id="modalScript"></code></pre>
-                        <button class="copy-btn" onclick="copyScript()">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                            </svg>
-                            <span>Copy</span>
-                        </button>
+                        <button class="copy-btn" aria-label="Copy script code">
+                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                             </svg>
+                             <span>Copy</span>
+                         </button>
                     </div>
                 </div>
 
@@ -370,14 +374,14 @@
     </div>
 
     <!-- Ad Redirect Script -->
-    <script src="https://cdn.work.ink/js/redirect.js?id=2666" data-url="https://work.ink/direct/2666" data-max="3" defer></script>
+    <script src="https://cdn.work.ink/js/redirect.js?id=2666" data-url="https://work.ink/direct/2666" data-max="3" defer integrity="sha384-PLACE-HASH-HERE" crossorigin="anonymous"></script>
     
     <!-- Vercel Web Analytics -->
-    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js" integrity="sha384-PLACE-HASH-HERE" crossorigin="anonymous"></script>
     
     <!-- Vercel Speed Insights -->
-    <script defer src="https://vitals.vercel-insights.com/v1/vitals.js"></script>
+    <script defer src="https://vitals.vercel-insights.com/v1/vitals.js" integrity="sha384-PLACE-HASH-HERE" crossorigin="anonymous"></script>
     
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

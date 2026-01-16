@@ -123,54 +123,93 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
+// Event Delegation for Modal Buttons
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Delegate click events for view-script-btn to avoid inline onclick
+    document.addEventListener('click', (e) => {
+        const viewBtn = e.target.closest('.view-script-btn');
+        if (viewBtn) {
+            const scriptId = parseInt(viewBtn.dataset.scriptId, 10);
+            if (!isNaN(scriptId)) {
+                openModal(scriptId);
+            }
+        }
+        
+        // Handle modal close button
+        if (e.target.closest('.modal-close')) {
+            closeModal();
+        }
+        
+        // Handle copy button
+        const copyBtn = e.target.closest('.copy-btn');
+        if (copyBtn) {
+            copyScript(copyBtn);
+        }
+    });
+});
+
+// ============================================
 // Modal Functions
 // ============================================
 
 function openModal(scriptId) {
-    const data = scriptsData[scriptId];
-    if (!data) return;
+     // Validate scriptId is a number
+     if (!Number.isInteger(scriptId) || !scriptsData[scriptId]) return;
+     
+     const data = scriptsData[scriptId];
+     const overlay = document.getElementById('modalOverlay');
     
-    const overlay = document.getElementById('modalOverlay');
+    // Set modal content using textContent to prevent XSS injection
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImage = document.getElementById('modalImage');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalScript = document.getElementById('modalScript');
     
-    document.getElementById('modalTitle').textContent = data.title;
-    document.getElementById('modalImage').src = data.thumbImage;
-    document.getElementById('modalImage').alt = data.title;
-    document.getElementById('modalDescription').textContent = data.description;
-    document.getElementById('modalScript').textContent = data.script;
+    if (modalTitle) modalTitle.textContent = data.title;
+    if (modalImage) {
+        modalImage.src = data.thumbImage;
+        modalImage.alt = data.title;
+    }
+    if (modalDescription) modalDescription.textContent = data.description;
+    if (modalScript) modalScript.textContent = data.script;
     
     currentScriptCode = data.script;
     
-    // Set badges
+    // Set badges - using textContent to prevent XSS
     const badgesContainer = document.getElementById('modalBadges');
     badgesContainer.innerHTML = '';
     data.badges.forEach((badge, index) => {
         const span = document.createElement('span');
         span.className = `badge ${data.badgeClasses[index]}`;
-        span.textContent = badge;
+        span.textContent = badge; // Safe: textContent doesn't parse HTML
         badgesContainer.appendChild(span);
     });
     
-    // Set action buttons with proper URLs
+    // Set action buttons with proper URLs - validate URLs first
     const keyBtn = document.getElementById('keySystemBtn');
     const gameLink = document.getElementById('gameLink');
     
-    keyBtn.href = data.keySystem;
-    keyBtn.onclick = (e) => {
-        e.stopPropagation();
-        window.open(data.keySystem, '_blank', 'noopener,noreferrer');
-    };
-    
-    gameLink.href = data.gameUrl;
-    gameLink.onclick = (e) => {
-        e.stopPropagation();
-        window.open(data.gameUrl, '_blank', 'noopener,noreferrer');
-    };
+    if (isValidURL(data.keySystem) && isValidURL(data.gameUrl)) {
+        keyBtn.href = data.keySystem;
+        keyBtn.onclick = (e) => {
+            e.preventDefault();
+            window.open(data.keySystem, '_blank', 'noopener,noreferrer');
+        };
+        
+        gameLink.href = data.gameUrl;
+        gameLink.onclick = (e) => {
+            e.preventDefault();
+            window.open(data.gameUrl, '_blank', 'noopener,noreferrer');
+        };
+    }
     
     // Set video if available
     const videoSection = document.getElementById('modalVideo');
     const videoLink = document.getElementById('videoLink');
     
-    if (data.video) {
+    if (data.video && isValidURL(data.video)) {
         videoSection.style.display = 'block';
         videoLink.href = data.video;
     } else {
@@ -210,29 +249,35 @@ document.addEventListener('keydown', (e) => {
 // Copy Script Function
 // ============================================
 
-async function copyScript() {
-    const copyBtn = document.querySelector('.modal .copy-btn');
-    if (!copyBtn) return;
-    
-    try {
-        await navigator.clipboard.writeText(currentScriptCode);
-        showCopySuccess(copyBtn);
-    } catch {
-        // Fallback
-        const textArea = document.createElement('textarea');
-        textArea.value = currentScriptCode;
-        textArea.style.cssText = 'position:fixed;left:-9999px';
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-            document.execCommand('copy');
-            showCopySuccess(copyBtn);
-        } catch {
-            copyBtn.querySelector('span').textContent = 'Error';
-        }
-        document.body.removeChild(textArea);
-    }
-}
+async function copyScript(button) {
+     // Use the button passed from event listener, or find it
+     const copyBtn = button || document.querySelector('.modal .copy-btn');
+     if (!copyBtn) return;
+     
+     try {
+         await navigator.clipboard.writeText(currentScriptCode);
+         showCopySuccess(copyBtn);
+     } catch {
+         // Fallback - use safer method
+         const textArea = document.createElement('textarea');
+         textArea.value = currentScriptCode;
+         // Use safe inline styles with proper escaping
+         textArea.style.position = 'fixed';
+         textArea.style.left = '-9999px';
+         textArea.setAttribute('aria-hidden', 'true');
+         document.body.appendChild(textArea);
+         textArea.select();
+         try {
+             document.execCommand('copy');
+             showCopySuccess(copyBtn);
+         } catch {
+             if (copyBtn.querySelector('span')) {
+                 copyBtn.querySelector('span').textContent = 'Error';
+             }
+         }
+         document.body.removeChild(textArea);
+     }
+ }
 
 function showCopySuccess(btn) {
     btn.classList.add('copied');
@@ -248,19 +293,23 @@ function showCopySuccess(btn) {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            // Only handle internal anchors that start with #
-            if (href && href.startsWith('#') && href.length > 1) {
-                e.preventDefault();
-                const target = document.getElementById(href.substring(1));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        });
-    });
+     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+         anchor.addEventListener('click', function(e) {
+             const href = this.getAttribute('href');
+             // Only handle internal anchors that start with #
+             if (href && href.startsWith('#') && href.length > 1) {
+                 e.preventDefault();
+                 const targetId = href.substring(1);
+                 // Sanitize target ID to prevent XSS
+                 if (/^[a-zA-Z0-9_-]+$/.test(targetId)) {
+                     const target = document.getElementById(targetId);
+                     if (target) {
+                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                     }
+                 }
+             }
+         });
+     });
 });
 
 // ============================================
