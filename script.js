@@ -371,9 +371,9 @@ console.log(
 
 async function loadRobloxThumbnail(gameId) {
     try {
-        // First get the universe ID from the place ID
+        // First get the universe ID from the place ID (using proxy)
         const universeResponse = await fetch(
-            `https://games.roblox.com/v1/games/multiget-place-details?placeIds=${gameId}`
+            `/api/roblox/v1/games/multiget-place-details?placeIds=${gameId}`
         );
         
         if (!universeResponse.ok) throw new Error('Failed to fetch universe');
@@ -383,9 +383,9 @@ async function loadRobloxThumbnail(gameId) {
         
         const universeId = universeData[0].universeId;
         
-        // Now get the thumbnail
+        // Now get the thumbnail (using proxy)
         const thumbResponse = await fetch(
-            `https://thumbnails.roblox.com/v1/games/icons?universeIds=${universeId}&size=512x512&format=Png&isCircular=false`
+            `/api/thumbnails/v1/games/icons?universeIds=${universeId}&size=512x512&format=Png&isCircular=false`
         );
         
         if (!thumbResponse.ok) throw new Error('Failed to fetch thumbnail');
