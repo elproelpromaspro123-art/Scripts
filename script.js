@@ -77,6 +77,41 @@ const scriptsData = {
         video: null,
         thumbImage: "images/game3-thumb.png",
         previewImage: "images/script3-preview.png"
+    },
+    4: {
+        title: "Blade Ball",
+        gameId: "13772394625",
+        gameUrl: "https://www.roblox.com/es/games/13772394625/Blade-Ball#ropro-quick-play",
+        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/7efad65c271e7308b00b3867673f1328/raw/0943d45b7a27b34e13955debea5cbf14bd071a5a/gistfile1.txt", true))()',
+        keySystem: "https://work.ink/2e7s/blade-ball-op-script-key-generator",
+        badges: ["BETA", "PC TESTED"],
+        badgeClasses: ["badge-beta", "badge-pc"],
+        description: `AUTOPARRY BETA V1 — Script Features
+
+AUTOPARRY BETA V1 is a precision-based auto parry script focused on consistency, performance, and clean execution.
+
+Features
+
+Automatic parry system based on real-time distance, speed, and impact timing calculations
+
+Reliable real ball detection to avoid fake or non-target objects
+
+Optimized handling for high-speed and close-range attacks
+
+Optional hitbox visualizer to display effective parry ranges
+
+Human-like input simulation for safer execution
+
+Clean, lightweight interface with live status feedback
+
+Toggleable features with instant response
+
+Proper cleanup and event disconnection on exit
+
+Designed to be stable, efficient, and easy to use without unnecessary complexity.`,
+        video: "https://youtu.be/ZzPSGZT5ayI?si=TDaCUO3Shccsxedo",
+        thumbImage: "images/game4-thumb.png",
+        previewImage: "images/script4-preview.png"
     }
 };
 
