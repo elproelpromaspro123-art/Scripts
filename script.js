@@ -112,6 +112,29 @@ Designed to be stable, efficient, and easy to use without unnecessary complexity
         video: "https://youtu.be/ZzPSGZT5ayI?si=TDaCUO3Shccsxedo",
         thumbImage: "images/game4-thumb.png",
         previewImage: "images/script4-preview.png"
+    },
+    5: {
+        title: "SCP:RP Ultimate",
+        gameId: "5041144419",
+        gameUrl: "https://www.roblox.com/es/games/5041144419/SCP-Roleplay",
+        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/235fab552f080f8f3c182ee8b4edbac1/raw/1490e39e6845f6041f73a4a5aec63224b8331456/gistfile1.txt"))()',
+        keySystem: "https://work.ink/2e7s/scp-roleplay-key-generator",
+        badges: ["BETA", "PC TESTED"],
+        badgeClasses: ["badge-beta", "badge-pc"],
+        description: `SCP:RP Ultimate – Advanced Tools Menu (BETA ACCESS)
+
+Elevate your gameplay in SCP:Roleplay with this sleek, powerful, and undetectable script featuring:
+
+ESP System – Clean player outlines, health bars, tracers, names, distance, team tags, rainbow mode & enhanced visuals
+
+Hitbox Expander – Make enemy hitboxes massive with adjustable size, neon visual feedback & perfect transparency
+
+Custom Crosshair – 10 modern styles (classic +, dot, T-shape, X-cross, circle+dot, diamond, star, gradient circle, reticle, thick target) + size, thickness, color & black outline options
+
+Quality-of-Life Features – Fullbright, Anti-AFK, Server Rejoin, Server Hop & Auto-Kick on Staff Detection`,
+        video: "https://youtu.be/ZzPSGZT5ayI",
+        thumbImage: "images/game5-thumb.png",
+        previewImage: "images/script5-preview.png"
     }
 };
 
