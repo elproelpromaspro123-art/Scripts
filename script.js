@@ -117,7 +117,7 @@ Designed to be stable, efficient, and easy to use without unnecessary complexity
         title: "SCP:RP Ultimate",
         gameId: "5041144419",
         gameUrl: "https://www.roblox.com/es/games/5041144419/SCP-Roleplay",
-        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/235fab552f080f8f3c182ee8b4edbac1/raw/1490e39e6845f6041f73a4a5aec63224b8331456/gistfile1.txt"))()',
+        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/235fab552f080f8f3c182ee8b4edbac1/raw/7f1657b189276c02833b4a4c87b9251f8410f83a/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/scp-roleplay-key-generator",
         badges: ["BETA", "PC TESTED"],
         badgeClasses: ["badge-beta", "badge-pc"],
