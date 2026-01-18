@@ -135,33 +135,6 @@ Quality-of-Life Features – Fullbright, Anti-AFK, Server Rejoin, Server Hop & A
         video: "https://youtu.be/ZzPSGZT5ayI",
         thumbImage: "images/game5-thumb.png",
         previewImage: "images/script5-preview.png"
-    },
-    6: {
-        title: "Master Sensei HUB",
-        gameId: "hub",
-        gameUrl: "#",
-        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/f98e7348c2c764ad0714cd1b13b18a3b/raw/f5566aaddb7eef36b9167666fe3f7aae5282de30/gistfile1.txt"))()',
-        keySystem: "https://work.ink/2e7s/master-sensei-hub-key-generator",
-        badges: ["ALL GAMES", "SINGLE KEY"],
-        badgeClasses: ["badge-new", "badge-key"],
-        description: `Master Sensei HUB – Script Hub
-
-One key for all games.
-12-hour access across every supported title.
-
-Supported Games:
-• SCP Roleplay (PC only – no mobile/iOS)
-• Uma Racing
-• Blade Ball
-• Break a Lucky Block
-• Animal Simulator
-
-Why use it?
-• Single key works for everything – no separate keys needed.
-• First run may crash – just re-execute.`,
-        video: "https://www.youtube.com/watch?v=ZzPSGZT5ayI&t=125s",
-        thumbImage: "images/hub-thumb.png",
-        previewImage: "images/hub-thumb.png"
     }
 };
 
