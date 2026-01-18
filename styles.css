@@ -537,8 +537,8 @@ body:hover .cursor-glow {
 }
 
 /* ============================================
-    Scripts Section
-    ============================================ */
+   Scripts Section
+   ============================================ */
 
 .scripts-section {
     padding: var(--space-3xl) var(--space-xl);
@@ -566,160 +566,6 @@ body:hover .cursor-glow {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--space-xl);
-}
-
-/* ============================================
-    Hub Section
-    ============================================ */
-
-.hub-section {
-    padding: var(--space-3xl) var(--space-xl);
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    position: relative;
-    overflow: hidden;
-}
-
-.hub-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.hub-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.hub-header {
-    text-align: center;
-    margin-bottom: var(--space-3xl);
-}
-
-.hub-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    background: var(--bg-glass);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-lg);
-}
-
-.hub-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: var(--space-lg);
-}
-
-.hub-description {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hub-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: var(--space-3xl);
-    align-items: start;
-}
-
-.hub-visual {
-    display: flex;
-    justify-content: center;
-}
-
-.hub-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border-color);
-}
-
-.hub-details h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: var(--space-md);
-}
-
-.games-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: var(--space-xl);
-}
-
-.games-list li {
-    padding: var(--space-sm) 0;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-secondary);
-}
-
-.games-list li:last-child {
-    border-bottom: none;
-}
-
-.benefits-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: var(--space-xl);
-}
-
-.benefits-list li {
-    padding: var(--space-sm) 0;
-    color: var(--text-secondary);
-}
-
-.hub-code h4 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: var(--space-md);
-}
-
-.hub-video {
-    margin-top: var(--space-xl);
-}
-
-.youtube-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-md) var(--space-lg);
-    background: rgba(255, 0, 0, 0.1);
-    border: 1px solid rgba(255, 0, 0, 0.3);
-    border-radius: var(--radius-md);
-    color: #ff4444;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all var(--transition-normal);
-}
-
-.youtube-btn:hover {
-    background: rgba(255, 0, 0, 0.2);
-    border-color: rgba(255, 0, 0, 0.5);
-    transform: translateY(-2px);
 }
 
 /* ============================================
@@ -1287,8 +1133,321 @@ body:hover .cursor-glow {
 }
 
 /* ============================================
-   Scrollbar
-   ============================================ */
+    Script Hub Section
+    ============================================ */
+
+.script-hub-section {
+    position: relative;
+    padding: var(--space-3xl) var(--space-xl);
+    margin: var(--space-3xl) 0;
+    background: 
+        linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.08) 100%),
+        var(--bg-secondary);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.script-hub-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+    animation: hubGlow 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes hubGlow {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(20px, -20px) scale(1.05);
+    }
+}
+
+.hub-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hub-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+}
+
+.hub-header {
+    text-align: center;
+}
+
+.hub-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-lg);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+}
+
+.badge-icon {
+    font-size: 1.2rem;
+}
+
+.hub-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+    letter-spacing: -1px;
+}
+
+.hub-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hub-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+}
+
+.hub-visual {
+    position: relative;
+}
+
+.hub-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-glow);
+    display: block;
+    z-index: 2;
+    position: relative;
+}
+
+.hub-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+    border-radius: var(--radius-lg);
+    filter: blur(30px);
+    z-index: 1;
+}
+
+.hub-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.hub-highlight {
+    padding: var(--space-lg);
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+}
+
+.hub-highlight h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.hub-highlight p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.games-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.games-list h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.games-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.games-items li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-normal);
+}
+
+.games-items li:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: var(--accent-primary);
+    transform: translateX(8px);
+}
+
+.game-icon {
+    font-size: 1.3rem;
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.game-name {
+    flex: 1;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.game-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgba(168, 85, 247, 0.2);
+    color: #e879f9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.game-badge.pc-only {
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
+}
+
+.hub-note {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.hub-note svg {
+    color: var(--warning);
+    flex-shrink: 0;
+}
+
+.hub-code {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.code-header span {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hub-code pre {
+    padding: var(--space-lg);
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--success);
+    margin: 0;
+}
+
+.copy-hub-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--accent-primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.copy-hub-btn:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-2px);
+}
+
+.copy-hub-btn.copied {
+    background: var(--success);
+}
+
+.hub-video-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-xl);
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(244, 63, 94, 0.2));
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    border-radius: var(--radius-md);
+    color: #ff4444;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    align-self: flex-start;
+}
+
+.hub-video-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(244, 63, 94, 0.3));
+    border-color: rgba(255, 0, 0, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+}
+
+/* ============================================
+    Scrollbar
+    ============================================ */
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -1318,35 +1477,30 @@ body:hover .cursor-glow {
         text-align: center;
         padding-top: 140px;
     }
-
+    
     .hero-content {
         max-width: 100%;
     }
-
+    
     .hero-description {
         margin-left: auto;
         margin-right: auto;
     }
-
+    
     .hero-stats {
         justify-content: center;
     }
-
+    
     .hero-visual {
         width: 100%;
     }
-
-    .hub-content {
+    
+    .hub-main {
         grid-template-columns: 1fr;
-        gap: var(--space-xl);
     }
-
-    .hub-visual {
-        order: -1;
-    }
-
-    .hub-image {
-        max-width: 300px;
+    
+    .hub-title {
+        font-size: 2rem;
     }
 }
 
@@ -1395,6 +1549,33 @@ body:hover .cursor-glow {
     .badge {
         font-size: 0.65rem;
         padding: 3px 8px;
+    }
+    
+    .script-hub-section {
+        padding: var(--space-xl) var(--space-md);
+        margin: var(--space-2xl) 0;
+    }
+    
+    .hub-title {
+        font-size: 1.5rem;
+    }
+    
+    .hub-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .hub-highlight h3 {
+        font-size: 1.1rem;
+    }
+    
+    .games-items li {
+        padding: var(--space-sm);
+        gap: var(--space-sm);
+    }
+    
+    .hub-code pre {
+        font-size: 0.75rem;
+        padding: var(--space-md);
     }
 }
 

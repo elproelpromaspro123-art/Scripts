@@ -221,6 +221,16 @@ document.addEventListener('click', (e) => {
         copyScript(copyBtn);
         return;
     }
+    
+    // Handle hub copy button
+    const copyHubBtn = e.target.closest('.copy-hub-btn');
+    if (copyHubBtn) {
+        console.log('Copy hub script clicked');
+        e.preventDefault();
+        e.stopPropagation();
+        copyHubScript(copyHubBtn);
+        return;
+    }
 }, true); // Use capture phase for reliability
 
 // ============================================
@@ -359,6 +369,29 @@ function showCopySuccess(btn) {
         btn.classList.remove('copied');
         btn.querySelector('span').textContent = 'Copy';
     }, 2000);
+}
+
+function copyHubScript(btn) {
+    const code = document.getElementById('hubScript');
+    if (!code) return;
+    
+    const textArea = document.createElement('textarea');
+    textArea.value = code.textContent;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    textArea.style.top = '-9999px';
+    document.body.appendChild(textArea);
+    
+    try {
+        textArea.select();
+        if (document.execCommand('copy')) {
+            showCopySuccess(btn);
+        }
+    } catch (err) {
+        console.error('Failed to copy:', err);
+    } finally {
+        document.body.removeChild(textArea);
+    }
 }
 
 // ============================================
