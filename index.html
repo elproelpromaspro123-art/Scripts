@@ -102,84 +102,86 @@
 
     <!-- Master Sensei HUB Section -->
     <section class="script-hub-section" id="script-hub">
-        <div class="hub-container">
-            <div class="hub-content">
-                <div class="hub-header">
-                    <div class="hub-badge">
-                        <span class="badge-icon">👑</span>
-                        <span class="badge-text">Master Sensei HUB</span>
-                    </div>
-                    <h2 class="hub-title">Script <span class="gradient-text">Hub</span></h2>
-                    <p class="hub-subtitle">One key for all games. 12-hour access across every supported title.</p>
+        <div class="section-header">
+            <div class="hub-badge">
+                <span class="badge-icon">👑</span>
+                <span class="badge-text">Master Sensei HUB</span>
+            </div>
+            <h2 class="section-title">Script <span class="gradient-text">Hub</span></h2>
+            <p class="section-subtitle">One key for all games. 12-hour access across every supported title.</p>
+        </div>
+
+        <div class="hub-grid-container">
+            <!-- Game Images Grid -->
+            <div class="hub-images-carousel">
+                <div class="carousel-image carousel-1">
+                    <img src="images/game1-thumb.png" alt="Break a Lucky Block">
+                </div>
+                <div class="carousel-image carousel-2">
+                    <img src="images/game2-thumb.png" alt="Animal Simulator">
+                </div>
+                <div class="carousel-image carousel-3">
+                    <img src="images/game3-thumb.png" alt="Uma Racing">
+                </div>
+                <div class="carousel-image carousel-4">
+                    <img src="images/game4-thumb.png" alt="Blade Ball">
+                </div>
+                <div class="carousel-image carousel-5">
+                    <img src="images/game5-thumb.png" alt="SCP Roleplay">
+                </div>
+            </div>
+
+            <!-- Center Content -->
+            <div class="hub-center-content">
+                <div class="hub-center-title">
+                    <h3>MASTER SENSEI HUB</h3>
+                    <p>UNIVERSAL SCRIPT HUB<br>ONE KEY. ALL GAMES.</p>
                 </div>
 
-                <div class="hub-main">
-                    <div class="hub-visual">
-                        <img src="images/hub-thumb.png" alt="Master Sensei Script Hub" class="hub-image">
-                        <div class="hub-glow"></div>
+                <div class="hub-center-info">
+                    <div class="info-item">
+                        <h4>One Key for All Games</h4>
+                        <p>Single key works for everything – no separate keys needed.</p>
                     </div>
 
-                    <div class="hub-details">
-                        <div class="hub-highlight">
-                            <h3>One Key for All Games</h3>
-                            <p>Single key works for everything – no separate keys needed.</p>
-                        </div>
-
-                        <div class="games-list">
-                            <h4>Supported Games</h4>
-                            <ul class="games-items">
-                                <li>
-                                    <span class="game-icon">🔓</span>
-                                    <span class="game-name">SCP Roleplay</span>
-                                    <span class="game-badge pc-only">PC ONLY</span>
-                                </li>
-                                <li>
-                                    <span class="game-icon">🏎️</span>
-                                    <span class="game-name">Uma Racing</span>
-                                </li>
-                                <li>
-                                    <span class="game-icon">⚔️</span>
-                                    <span class="game-name">Blade Ball</span>
-                                </li>
-                                <li>
-                                    <span class="game-icon">📦</span>
-                                    <span class="game-name">Break a Lucky Block</span>
-                                </li>
-                                <li>
-                                    <span class="game-icon">🦁</span>
-                                    <span class="game-name">Animal Simulator</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="hub-note">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
-                            </svg>
-                            <span>First run may crash – just re-execute.</span>
-                        </div>
-
-                        <div class="hub-code">
-                            <div class="code-header">
-                                <span>Script Code</span>
-                                <button class="copy-hub-btn" aria-label="Copy hub script">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                                    </svg>
-                                    <span>Copy</span>
-                                </button>
-                            </div>
-                            <pre><code id="hubScript">loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/f98e7348c2c764ad0714cd1b13b18a3b/raw/f5566aaddb7eef36b9167666fe3f7aae5282de30/gistfile1.txt"))()</code></pre>
-                        </div>
-
-                        <a href="https://www.youtube.com/watch?v=ZzPSGZT5ayI&t=125s" target="_blank" rel="noopener noreferrer" class="hub-video-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                            <span>Watch Tutorial</span>
-                        </a>
+                    <div class="games-list-simple">
+                        <h5>Supported Games</h5>
+                        <ul>
+                            <li>🔓 SCP Roleplay <span class="badge-small">PC ONLY</span></li>
+                            <li>🏎️ Uma Racing</li>
+                            <li>⚔️ Blade Ball</li>
+                            <li>📦 Break a Lucky Block</li>
+                            <li>🦁 Animal Simulator</li>
+                        </ul>
                     </div>
+
+                    <div class="hub-note-simple">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                        <span>First run may crash – just re-execute.</span>
+                    </div>
+                </div>
+
+                <div class="hub-actions">
+                    <div class="hub-code-simple">
+                        <button class="copy-hub-btn" aria-label="Copy hub script">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                        <code id="hubScript">loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/f98e7348c2c764ad0714cd1b13b18a3b/raw/f5566aaddb7eef36b9167666fe3f7aae5282de30/gistfile1.txt"))()</code>
+                    </div>
+
+                    <a href="https://www.youtube.com/watch?v=ZzPSGZT5ayI&t=125s" target="_blank" rel="noopener noreferrer" class="hub-video-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <span>Watch Tutorial</span>
+                    </a>
                 </div>
             </div>
         </div>
