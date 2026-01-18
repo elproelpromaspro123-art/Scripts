@@ -136,17 +136,18 @@ Quality-of-Life Features – Fullbright, Anti-AFK, Server Rejoin, Server Hop & A
         thumbImage: "images/game5-thumb.png",
         previewImage: "images/script5-preview.png"
     },
-    hub: {
+    6: {
         title: "Master Sensei HUB",
         gameId: "hub",
-        gameUrl: "#hub",
+        gameUrl: "#",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/f98e7348c2c764ad0714cd1b13b18a3b/raw/f5566aaddb7eef36b9167666fe3f7aae5282de30/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/master-sensei-hub-key-generator",
-        badges: ["HUB", "ALL GAMES", "12H ACCESS"],
-        badgeClasses: ["badge-hub", "badge-all", "badge-12h"],
+        badges: ["ALL GAMES", "SINGLE KEY"],
+        badgeClasses: ["badge-new", "badge-key"],
         description: `Master Sensei HUB – Script Hub
 
-One key for all games. 12-hour access across every supported title.
+One key for all games.
+12-hour access across every supported title.
 
 Supported Games:
 • SCP Roleplay (PC only – no mobile/iOS)
@@ -156,9 +157,8 @@ Supported Games:
 • Animal Simulator
 
 Why use it?
-Single key works for everything – no separate keys needed.
-
-First run may crash – just re-execute.`,
+• Single key works for everything – no separate keys needed.
+• First run may crash – just re-execute.`,
         video: "https://www.youtube.com/watch?v=ZzPSGZT5ayI&t=125s",
         thumbImage: "images/hub-thumb.png",
         previewImage: "images/hub-thumb.png"
@@ -218,14 +218,6 @@ document.addEventListener('click', (e) => {
         const scriptId = viewBtn.dataset.scriptId;
         console.log('View Script clicked:', scriptId);
         if (scriptId) {
-            // Handle both numeric IDs and string IDs (like 'hub')
-            if (scriptId === 'hub' || (scriptId in scriptsData)) {
-                e.preventDefault();
-                e.stopPropagation();
-                openModal(scriptId);
-                return;
-            }
-            // Try parsing as number for backward compatibility
             const id = parseInt(scriptId, 10);
             console.log('Parsed ID:', id, 'Valid:', !isNaN(id) && id in scriptsData);
             if (!isNaN(id) && id in scriptsData) {
@@ -263,8 +255,8 @@ document.addEventListener('click', (e) => {
 // ============================================
 
 function openModal(scriptId) {
-     // Validate scriptId exists in scriptsData
-     if (!scriptsData[scriptId]) return;
+     // Validate scriptId is a number
+     if (!Number.isInteger(scriptId) || !scriptsData[scriptId]) return;
      
      const data = scriptsData[scriptId];
      const overlay = document.getElementById('modalOverlay');
