@@ -135,6 +135,27 @@ Quality-of-Life Features – Fullbright, Anti-AFK, Server Rejoin, Server Hop & A
         video: "https://youtu.be/ZzPSGZT5ayI",
         thumbImage: "images/game5-thumb.png",
         previewImage: "images/script5-preview.png"
+    },
+    6: {
+        title: "Scary Shawarma Kiosk",
+        gameId: "137826330724902",
+        gameUrl: "https://www.roblox.com/es/games/137826330724902/Scary-Shawarma-Kiosk-the-ANOMALY",
+        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/cb25329376624636a555658156b7eebe/raw/3ca95ecf14c071a9b2f156bfc341e47258c92981/gistfile1.txt"))()',
+        keySystem: "https://work.ink/2e7s/shawarma-key-generator",
+        badges: ["NEW", "PC TESTED"],
+        badgeClasses: ["badge-new", "badge-pc"],
+        description: `Shawarma Dominator v2.0 - Advanced cheat for Scary Shawarma Kiosk:
+
+• Real-time anomaly & screamer detection
+• Next model preview (know if it's anomaly before starting)
+• Infinite auto-revive
+• Smooth fly, perfect noclip, unlimited speed/jump
+• Anti-AFK
+
+Control the game. No deaths, no surprises.`,
+        video: "https://youtu.be/ZzPSGZT5ayI?si=z5oocrmSu-HXxmTI",
+        thumbImage: "images/game6-thumb.png",
+        previewImage: "images/script6-preview.png"
     }
 };
 
