@@ -1,9 +1,28 @@
 // ============================================
 // ElPro Scripts - Main JavaScript
-// Security & Functionality
+// Security & Functionality - Production Ready
 // ============================================
 
 'use strict';
+
+// ============================================
+// Constants
+// ============================================
+
+const CONFIG = {
+    MAX_PARTICLES: 50,
+    PARTICLE_MIN_SIZE: 1,
+    PARTICLE_MAX_SIZE: 2,
+    CONNECT_DISTANCE: 150,
+    ANIMATION_FRAME_RATE: 60
+};
+
+const VALID_DOMAINS = new Set([
+    'work.ink',
+    'roblox.com',
+    'youtube.com',
+    'gist.githubusercontent.com'
+]);
 
 // ============================================
 // Script Data Configuration
@@ -165,13 +184,41 @@ let currentScriptCode = '';
 // Utility Functions
 // ============================================
 
-function isValidURL(string) {
+/**
+ * Validates if a string is a valid URL and from approved domain
+ * @param {string} urlString - The URL to validate
+ * @returns {boolean} True if valid
+ */
+function isValidURL(urlString) {
     try {
-        const url = new URL(string);
-        return url.protocol === 'http:' || url.protocol === 'https:';
+        const url = new URL(urlString);
+        const protocol = url.protocol === 'http:' || url.protocol === 'https:';
+        const domain = VALID_DOMAINS.has(url.hostname) || url.hostname.endsWith('.vercel.app');
+        return protocol && domain;
     } catch {
         return false;
     }
+}
+
+/**
+ * Sanitizes text to prevent XSS
+ * @param {string} text - Text to sanitize
+ * @returns {string} Sanitized text
+ */
+function sanitizeText(text) {
+    if (typeof text !== 'string') return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+/**
+ * Validates script ID
+ * @param {any} id - The ID to validate
+ * @returns {boolean} True if valid
+ */
+function isValidScriptId(id) {
+    return Number.isInteger(id) && id > 0 && id <= 6;
 }
 
 // ============================================
@@ -210,11 +257,9 @@ document.addEventListener('click', (e) => {
     const viewBtn = e.target.closest('.view-script-btn');
     if (viewBtn) {
         const scriptId = viewBtn.dataset.scriptId;
-        console.log('View Script clicked:', scriptId);
         if (scriptId) {
             const id = parseInt(scriptId, 10);
-            console.log('Parsed ID:', id, 'Valid:', !isNaN(id) && id in scriptsData);
-            if (!isNaN(id) && id in scriptsData) {
+            if (isValidScriptId(id)) {
                 e.preventDefault();
                 e.stopPropagation();
                 openModal(id);
@@ -226,7 +271,6 @@ document.addEventListener('click', (e) => {
     // Handle modal close button
     const closeBtn = e.target.closest('.modal-close');
     if (closeBtn) {
-        console.log('Close modal clicked');
         e.preventDefault();
         e.stopPropagation();
         closeModal();
@@ -236,7 +280,6 @@ document.addEventListener('click', (e) => {
     // Handle copy button
     const copyBtn = e.target.closest('.copy-btn');
     if (copyBtn) {
-        console.log('Copy script clicked');
         e.preventDefault();
         e.stopPropagation();
         copyScript(copyBtn);
@@ -246,7 +289,6 @@ document.addEventListener('click', (e) => {
     // Handle hub copy button
     const copyHubBtn = e.target.closest('.copy-hub-btn');
     if (copyHubBtn) {
-        console.log('Copy hub script clicked');
         e.preventDefault();
         e.stopPropagation();
         copyHubScript(copyHubBtn);
@@ -260,7 +302,7 @@ document.addEventListener('click', (e) => {
 
 function openModal(scriptId) {
      // Validate scriptId is a number
-     if (!Number.isInteger(scriptId) || !scriptsData[scriptId]) return;
+     if (!isValidScriptId(scriptId)) return;
      
      const data = scriptsData[scriptId];
      const overlay = document.getElementById('modalOverlay');
@@ -273,8 +315,8 @@ function openModal(scriptId) {
     
     if (modalTitle) modalTitle.textContent = data.title;
     if (modalImage) {
-        modalImage.src = data.thumbImage;
-        modalImage.alt = data.title;
+        modalImage.src = sanitizeText(data.thumbImage);
+        modalImage.alt = sanitizeText(data.title);
     }
     if (modalDescription) modalDescription.textContent = data.description;
     if (modalScript) modalScript.textContent = data.script;
@@ -283,13 +325,15 @@ function openModal(scriptId) {
     
     // Set badges - using textContent to prevent XSS
     const badgesContainer = document.getElementById('modalBadges');
-    badgesContainer.innerHTML = '';
-    data.badges.forEach((badge, index) => {
-        const span = document.createElement('span');
-        span.className = `badge ${data.badgeClasses[index]}`;
-        span.textContent = badge; // Safe: textContent doesn't parse HTML
-        badgesContainer.appendChild(span);
-    });
+    if (badgesContainer) {
+        badgesContainer.innerHTML = '';
+        data.badges.forEach((badge, index) => {
+            const span = document.createElement('span');
+            span.className = `badge ${data.badgeClasses[index]}`;
+            span.textContent = badge;
+            badgesContainer.appendChild(span);
+        });
+    }
     
     // Set action buttons with proper URLs - validate URLs first
     const keyBtn = document.getElementById('keySystemBtn');
@@ -427,7 +471,6 @@ document.addEventListener('DOMContentLoaded', () => {
              if (href && href.startsWith('#') && href.length > 1) {
                  e.preventDefault();
                  const targetId = href.substring(1);
-                 // Sanitize target ID to prevent XSS
                  if (/^[a-zA-Z0-9_-]+$/.test(targetId)) {
                      const target = document.getElementById(targetId);
                      if (target) {
@@ -496,12 +539,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function createParticles() {
         particles = [];
-        const count = Math.min(50, Math.floor(window.innerWidth / 30));
+        const count = Math.min(CONFIG.MAX_PARTICLES, Math.floor(window.innerWidth / 30));
         for (let i = 0; i < count; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.random() * 2 + 1,
+                size: Math.random() * (CONFIG.PARTICLE_MAX_SIZE - CONFIG.PARTICLE_MIN_SIZE) + CONFIG.PARTICLE_MIN_SIZE,
                 speedX: (Math.random() - 0.5) * 0.5,
                 speedY: (Math.random() - 0.5) * 0.5,
                 opacity: Math.random() * 0.5 + 0.2
@@ -528,21 +571,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // Draw connections
-        particles.forEach((p1, i) => {
-            particles.slice(i + 1).forEach(p2 => {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const p1 = particles[i];
+                const p2 = particles[j];
                 const dx = p1.x - p2.x;
                 const dy = p1.y - p2.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 
-                if (dist < 150) {
+                if (dist < CONFIG.CONNECT_DISTANCE) {
                     ctx.beginPath();
                     ctx.moveTo(p1.x, p1.y);
                     ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - dist / 150)})`;
+                    ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - dist / CONFIG.CONNECT_DISTANCE)})`;
                     ctx.stroke();
                 }
-            });
-        });
+            }
+        }
         
         animationId = requestAnimationFrame(animate);
     }
@@ -584,70 +629,38 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
-// Console Message
+// Console Message & Performance
 // ============================================
 
 console.log('%c⚡ ElPro Scripts', 'color: #6366f1; font-size: 24px; font-weight: bold;');
 console.log('%cPremium Roblox Scripts Collection', 'color: #888; font-size: 14px;');
 
+// Performance monitoring
+if (window.performance && window.performance.mark) {
+    performance.mark('app-load-complete');
+}
+
 // Fallback: attach direct click listeners to view buttons in case delegation fails
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.view-script-btn').forEach(btn => {
-        // avoid adding duplicate listeners
         if (btn.__hasViewListener) return;
         btn.__hasViewListener = true;
         btn.addEventListener('click', (e) => {
             const scriptId = btn.dataset.scriptId;
             if (!scriptId) return;
             const id = parseInt(scriptId, 10);
-            if (isNaN(id) || !(id in scriptsData)) return;
+            if (!isValidScriptId(id)) return;
             e.preventDefault();
             openModal(id);
         });
     });
-});
-
-// Try to relocate / reduce z-index of Vercel feedback widget if it is injected and covers the page
-(function adjustVercelFeedback(){
-    let attempts = 0;
-    const maxAttempts = 10;
-    const tryAdjust = () => {
-        const vf = document.querySelector('vercel-live-feedback');
-        if (vf) {
-            // Move to bottom-right and lower z-index so it doesn't sit on top of content
-            vf.style.position = 'fixed';
-            vf.style.top = '';
-            vf.style.left = '';
-            vf.style.bottom = '12px';
-            vf.style.right = '12px';
-            vf.style.zIndex = '1000';
-            vf.style.pointerEvents = 'auto';
-            console.log('Adjusted vercel-live-feedback position to bottom-right');
-            clearInterval(interval);
-        }
-        attempts++;
-        if (attempts >= maxAttempts) clearInterval(interval);
-    };
-    const interval = setInterval(tryAdjust, 500);
-    tryAdjust();
-})();
-
-// One-time diagnostic to see if any `.view-script-btn` is being covered by another element
-(function runOneTimeCoverCheck(){
-    let checked = false;
-    document.addEventListener('click', (e) => {
-        if (checked) return;
-        checked = true;
-        const buttons = document.querySelectorAll('.view-script-btn');
-        buttons.forEach(btn => {
-            const rect = btn.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            if (x < 0 || y < 0 || x > window.innerWidth || y > window.innerHeight) return;
-            const topEl = document.elementFromPoint(x, y);
-            if (topEl && !btn.contains(topEl)) {
-                console.warn('A `.view-script-btn` may be covered by:', topEl, '\nButton element:', btn);
+    
+    // Verify no buttons are obstructed
+    setTimeout(() => {
+        document.querySelectorAll('.view-script-btn').forEach(btn => {
+            if (btn.offsetParent === null) {
+                console.warn('Button may be hidden:', btn);
             }
         });
-    }, { once: true, capture: true });
-})();
+    }, 1000);
+});

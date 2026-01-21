@@ -1,19 +1,40 @@
 {
   "name": "elpro-scripts",
-  "version": "1.0.0",
-  "description": "Premium Roblox Scripts Hub - ElPro Scripts Collection",
+  "version": "2.0.0",
+  "description": "ElPro Scripts - Premium Roblox Scripts Hub. Production ready with SEO & security.",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve . -l 3000"
+    "start": "npx serve . --listen 3000",
+    "dev": "npx serve . --listen 3000 --single",
+    "build": "echo 'Static site - no build needed'",
+    "serve": "npx http-server . -p 8080 -c-1"
   },
   "keywords": [
     "roblox",
+    "roblox-scripts",
     "scripts",
+    "autofarm",
     "gaming",
-    "autofarm"
+    "roblox-games",
+    "script-hub",
+    "free-scripts",
+    "autoparry",
+    "blade-ball"
   ],
-  "author": "ElPro",
+  "author": "ElPro Scripts",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/elpruscripts"
+  },
+  "homepage": "https://elpruscripts.vercel.app",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "serve": "^14.1.2"
+  }
 }
