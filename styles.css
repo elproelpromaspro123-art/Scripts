@@ -135,11 +135,22 @@ button {
     position: fixed;
     inset: 0;
     background: 
-        radial-gradient(ellipse 100% 80% at 50% -30%, rgba(167, 139, 250, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 80% 60% at 100% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 40%),
-        radial-gradient(ellipse 60% 80% at 0% 80%, rgba(167, 139, 250, 0.03) 0%, transparent 40%);
+        radial-gradient(ellipse 120% 80% at 50% -40%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 60% at 100% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+        radial-gradient(ellipse 60% 80% at 0% 100%, rgba(167, 139, 250, 0.04) 0%, transparent 40%);
     pointer-events: none;
     z-index: -1;
+}
+
+.bg-pattern::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 20%, transparent 70%);
 }
 
 /* ============================================
@@ -324,19 +335,19 @@ button {
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-4) var(--space-8);
-    background: var(--text-primary);
-    color: var(--bg-primary);
+    background: linear-gradient(135deg, var(--highlight) 0%, #818cf8 100%);
+    color: white;
     font-weight: 600;
     font-size: 0.95rem;
     letter-spacing: -0.01em;
     border-radius: var(--radius-xl);
     transition: all var(--duration-normal) var(--ease-spring);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 20px rgba(167, 139, 250, 0.3);
 }
 
 .cta-button:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(167, 139, 250, 0.4);
 }
 
 .cta-button svg {
@@ -530,13 +541,17 @@ button {
 }
 
 .hub-game:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--highlight);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(167, 139, 250, 0.2);
 }
 
 .hub-game:hover img {
-    transform: scale(1.1);
+    transform: scale(1.15);
+}
+
+.hub-game:hover .game-label {
+    color: var(--highlight);
 }
 
 .game-label {
@@ -549,6 +564,7 @@ button {
     text-align: center;
     z-index: 1;
     letter-spacing: 0.02em;
+    transition: color var(--duration-normal) var(--ease-out);
 }
 
 .hub-features {
@@ -656,13 +672,14 @@ button {
 }
 
 .hub-btn.primary {
-    background: var(--text-primary);
-    color: var(--bg-primary);
+    background: linear-gradient(135deg, var(--highlight) 0%, #818cf8 100%);
+    color: white;
+    border: 1px solid transparent;
 }
 
 .hub-btn.primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 32px rgba(167, 139, 250, 0.3);
 }
 
 .hub-btn.secondary {
@@ -724,13 +741,17 @@ button {
 }
 
 .script-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    border-color: var(--highlight);
+    box-shadow: var(--shadow-xl), 0 0 40px rgba(167, 139, 250, 0.15);
 }
 
 .script-card:hover::before {
     opacity: 1;
+}
+
+.script-card:hover .card-title {
+    color: var(--highlight);
 }
 
 .card-image {
@@ -741,22 +762,63 @@ button {
 }
 
 .card-image img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--duration-slow) var(--ease-out);
+    transition: opacity var(--duration-normal) var(--ease-out), transform var(--duration-slow) var(--ease-out);
 }
 
-.script-card:hover .card-image img {
+.card-image .img-primary {
+    z-index: 1;
+}
+
+.card-image .img-preview {
+    z-index: 2;
+    opacity: 0;
+}
+
+.script-card:hover .card-image .img-primary {
+    opacity: 0;
     transform: scale(1.05);
+}
+
+.script-card:hover .card-image .img-preview {
+    opacity: 1;
+    transform: scale(1.02);
 }
 
 .card-image::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, var(--bg-tertiary) 0%, transparent 40%);
+    z-index: 3;
+    background: linear-gradient(to top, var(--bg-tertiary) 0%, transparent 50%);
     pointer-events: none;
+}
+
+/* Image dots indicator */
+.card-image::before {
+    content: '';
+    position: absolute;
+    bottom: var(--space-3);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    width: 32px;
+    height: 6px;
+    background: 
+        radial-gradient(circle at 25% 50%, rgba(255, 255, 255, 0.6) 3px, transparent 3px),
+        radial-gradient(circle at 75% 50%, rgba(255, 255, 255, 0.25) 3px, transparent 3px);
+    transition: all var(--duration-normal) var(--ease-out);
+    pointer-events: none;
+}
+
+.script-card:hover .card-image::before {
+    background: 
+        radial-gradient(circle at 25% 50%, rgba(255, 255, 255, 0.25) 3px, transparent 3px),
+        radial-gradient(circle at 75% 50%, rgba(255, 255, 255, 0.6) 3px, transparent 3px);
 }
 
 .card-badges {
@@ -766,7 +828,7 @@ button {
     display: flex;
     gap: var(--space-2);
     flex-wrap: wrap;
-    z-index: 2;
+    z-index: 5;
 }
 
 .badge {
@@ -808,6 +870,7 @@ button {
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: var(--space-2);
+    transition: color var(--duration-normal) var(--ease-out);
 }
 
 .card-status {
@@ -864,7 +927,7 @@ button {
 .view-btn {
     width: 100%;
     padding: var(--space-4);
-    background: transparent;
+    background: var(--bg-primary);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     color: var(--text-primary);
@@ -880,7 +943,7 @@ button {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--text-primary);
+    background: linear-gradient(135deg, var(--highlight) 0%, #818cf8 100%);
     transform: translateY(100%);
     transition: transform var(--duration-normal) var(--ease-out);
 }
@@ -888,11 +951,15 @@ button {
 .view-btn span {
     position: relative;
     z-index: 1;
+    transition: color var(--duration-normal) var(--ease-out);
 }
 
 .view-btn:hover {
-    border-color: var(--text-primary);
-    color: var(--bg-primary);
+    border-color: var(--highlight);
+}
+
+.view-btn:hover span {
+    color: white;
 }
 
 .view-btn:hover::before {
@@ -1177,13 +1244,13 @@ button {
 }
 
 .action-btn.primary {
-    background: var(--text-primary);
-    color: var(--bg-primary);
+    background: linear-gradient(135deg, var(--highlight) 0%, #818cf8 100%);
+    color: white;
 }
 
 .action-btn.primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 32px rgba(167, 139, 250, 0.3);
 }
 
 .action-btn.secondary {
