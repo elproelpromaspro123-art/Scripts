@@ -1,70 +1,45 @@
 // ============================================
-// ElPro Scripts - Main JavaScript
-// Security & Functionality - Production Ready
+// ElPro Scripts - Optimized JavaScript
+// Performance & Accessibility Ready
 // ============================================
 
 'use strict';
 
 // ============================================
-// Constants
-// ============================================
-
-const CONFIG = {
-    MAX_PARTICLES: 50,
-    PARTICLE_MIN_SIZE: 1,
-    PARTICLE_MAX_SIZE: 2,
-    CONNECT_DISTANCE: 150,
-    ANIMATION_FRAME_RATE: 60
-};
-
-const VALID_DOMAINS = new Set([
-    'work.ink',
-    'roblox.com',
-    'youtube.com',
-    'gist.githubusercontent.com'
-]);
-
-// ============================================
-// Script Data Configuration
+// Script Data
 // ============================================
 
 const scriptsData = {
     1: {
         title: "Break a Lucky Block",
-        gameId: "124311897657957",
         gameUrl: "https://www.roblox.com/es/games/124311897657957/Break-a-Lucky-Block",
-        script: `loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/660d469d6b59e9203d285305b6dda424/raw/c4ff5085f58ced0a2d1d29a62ed096a1c9463152/gistfile1.txt"))()`,
+        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/660d469d6b59e9203d285305b6dda424/raw/c4ff5085f58ced0a2d1d29a62ed096a1c9463152/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/break-a-lucky-block-key-generator",
-        badges: ["NEWEST", "BETA", "KEY REQUIRED", "PC TESTED"],
-        badgeClasses: ["badge-new", "badge-beta", "badge-key", "badge-pc"],
+        badges: ["NEW", "BETA", "KEY REQUIRED", "PC TESTED"],
         description: `Key Features (BETA):
 
-• Fully underground AutoFarm (completely invisible from surface)
+• Fully underground AutoFarm (invisible from surface)
 • Noclip + safety platform to prevent falling
 • Automatic stuck detection & cycle reset
-• Target specific Lucky Block type or random (All)
-• Super fast auto-collection of drops (E spam + proximity trigger)
-• Stealth-oriented (mostly works below ground)
+• Target specific Lucky Block type or random
+• Fast auto-collection of drops
+• Stealth-oriented (works below ground)
 • Clean Rayfield UI
 • Emergency Panic Key (default: P)
-• Useful teleports (Sell, Buy Pickaxe, Trader, Fuse Machine, etc)
-• Key system via work.ink (easy & fast)`,
+• Useful teleports (Sell, Buy, Trader, Fuse)
+• Key system via work.ink`,
         video: "https://www.youtube.com/watch?v=2q1fD3TnFLM",
-        thumbImage: "images/game1-thumb.png",
-        previewImage: "images/script1-preview.png"
+        thumbImage: "images/game1-thumb.png"
     },
     2: {
         title: "Animal Simulator",
-        gameId: "5712833750",
         gameUrl: "https://www.roblox.com/es/games/5712833750/Animal-Simulator",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/1e39745e7142c4980fbf34792a03c7c2/raw/98f59e9aad6f9a01154ac21bc7fca812c93c96b5/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/animal-simulator-token-generator",
-        badges: ["UPDATED", "CHRISTMAS 🎄", "KEY REQUIRED", "PC TESTED"],
-        badgeClasses: ["badge-updated", "badge-christmas", "badge-key", "badge-pc"],
+        badges: ["UPDATED", "CHRISTMAS", "KEY REQUIRED", "PC TESTED"],
         description: `Animal Simulator Christmas Autofarm 2025/2026
-🎄 Rayfield GUI - Updated Jan 2026
 
-✨ FEATURES:
+Features:
 • Auto Coins
 • Egg Farm TPs
 • 5k Dummy EXP Farm
@@ -74,593 +49,276 @@ const scriptsData = {
 • Hitbox Expander (Players/Bosses)
 • Auto Q Spam
 
-✅ Works: All executors should work. If not, just report in comments.`,
+Works on all executors.`,
         video: "https://www.youtube.com/watch?v=ZzPSGZT5ayI",
-        thumbImage: "images/game2-thumb.png",
-        previewImage: "images/script2-preview.png"
+        thumbImage: "images/game2-thumb.png"
     },
     3: {
         title: "Uma Racing",
-        gameId: "94101948530988",
         gameUrl: "https://www.roblox.com/es/games/94101948530988/Uma-Racing",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/827c89bc204b31aa8efb77dac8e7d315/raw/330a5f67d98310a004cf322e46346ee8fcb3a1ce/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/key-system",
         badges: ["SIMPLE", "KEY REQUIRED", "PC TESTED"],
-        badgeClasses: ["badge-simple", "badge-key", "badge-pc"],
         description: `Uma Racing - Infinite Stamina Script
 
 • Infinite Stamina - Never run out of energy!
 
-✅ Works on Xeno and Solara
-✅ All executors should work`,
+Works on Xeno and Solara. All executors should work.`,
         video: null,
-        thumbImage: "images/game3-thumb.png",
-        previewImage: "images/script3-preview.png"
+        thumbImage: "images/game3-thumb.png"
     },
     4: {
         title: "Blade Ball",
-        gameId: "13772394625",
-        gameUrl: "https://www.roblox.com/es/games/13772394625/Blade-Ball#ropro-quick-play",
+        gameUrl: "https://www.roblox.com/es/games/13772394625/Blade-Ball",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/7efad65c271e7308b00b3867673f1328/raw/0943d45b7a27b34e13955debea5cbf14bd071a5a/gistfile1.txt", true))()',
         keySystem: "https://work.ink/2e7s/blade-ball-op-script-key-generator",
         badges: ["BETA", "PC TESTED"],
-        badgeClasses: ["badge-beta", "badge-pc"],
-        description: `AUTOPARRY BETA V1 — Script Features
+        description: `AUTOPARRY BETA V1
 
-AUTOPARRY BETA V1 is a precision-based auto parry script focused on consistency, performance, and clean execution.
-
-Features
-
-Automatic parry system based on real-time distance, speed, and impact timing calculations
-
-Reliable real ball detection to avoid fake or non-target objects
-
-Optimized handling for high-speed and close-range attacks
-
-Optional hitbox visualizer to display effective parry ranges
-
-Human-like input simulation for safer execution
-
-Clean, lightweight interface with live status feedback
-
-Toggleable features with instant response
-
-Proper cleanup and event disconnection on exit
-
-Designed to be stable, efficient, and easy to use without unnecessary complexity.`,
-        video: "https://youtu.be/ZzPSGZT5ayI?si=TDaCUO3Shccsxedo",
-        thumbImage: "images/game4-thumb.png",
-        previewImage: "images/script4-preview.png"
+Features:
+• Automatic parry based on real-time distance/speed
+• Reliable real ball detection
+• Optimized for high-speed attacks
+• Optional hitbox visualizer
+• Human-like input simulation
+• Clean, lightweight interface
+• Toggleable features
+• Proper cleanup on exit`,
+        video: "https://youtu.be/ZzPSGZT5ayI",
+        thumbImage: "images/game4-thumb.png"
     },
     5: {
-        title: "SCP:RP Ultimate",
-        gameId: "5041144419",
+        title: "SCP: Roleplay",
         gameUrl: "https://www.roblox.com/es/games/5041144419/SCP-Roleplay",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/235fab552f080f8f3c182ee8b4edbac1/raw/7f1657b189276c02833b4a4c87b9251f8410f83a/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/scp-roleplay-key-generator",
         badges: ["BETA", "PC TESTED"],
-        badgeClasses: ["badge-beta", "badge-pc"],
-        description: `SCP:RP Ultimate – Advanced Tools Menu (BETA ACCESS)
+        description: `SCP:RP Ultimate – Advanced Tools (BETA)
 
-Elevate your gameplay in SCP:Roleplay with this sleek, powerful, and undetectable script featuring:
-
-ESP System – Clean player outlines, health bars, tracers, names, distance, team tags, rainbow mode & enhanced visuals
-
-Hitbox Expander – Make enemy hitboxes massive with adjustable size, neon visual feedback & perfect transparency
-
-Custom Crosshair – 10 modern styles (classic +, dot, T-shape, X-cross, circle+dot, diamond, star, gradient circle, reticle, thick target) + size, thickness, color & black outline options
-
-Quality-of-Life Features – Fullbright, Anti-AFK, Server Rejoin, Server Hop & Auto-Kick on Staff Detection`,
+• ESP System – Player outlines, health bars, tracers, names, distance, team tags
+• Hitbox Expander – Adjustable size, neon visual
+• Custom Crosshair – 10 modern styles + customization
+• Quality-of-Life – Fullbright, Anti-AFK, Server Rejoin, Hop`,
         video: "https://youtu.be/ZzPSGZT5ayI",
-        thumbImage: "images/game5-thumb.png",
-        previewImage: "images/script5-preview.png"
+        thumbImage: "images/game5-thumb.png"
     },
     6: {
         title: "Scary Shawarma Kiosk",
-        gameId: "137826330724902",
-        gameUrl: "https://www.roblox.com/es/games/137826330724902/Scary-Shawarma-Kiosk-the-ANOMALY",
+        gameUrl: "https://www.roblox.com/es/games/137826330724902/Scary-Shawarma-Kiosk",
         script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/cb25329376624636a555658156b7eebe/raw/3ca95ecf14c071a9b2f156bfc341e47258c92981/gistfile1.txt"))()',
         keySystem: "https://work.ink/2e7s/shawarma-key-generator",
         badges: ["NEW", "PC TESTED"],
-        badgeClasses: ["badge-new", "badge-pc"],
-        description: `Shawarma Dominator v2.0 - Advanced cheat for Scary Shawarma Kiosk:
+        description: `Shawarma Dominator v2.0
 
 • Real-time anomaly & screamer detection
-• Next model preview (know if it's anomaly before starting)
+• Next model preview (know if it's anomaly)
 • Infinite auto-revive
 • Smooth fly, perfect noclip, unlimited speed/jump
 • Anti-AFK
 
 Control the game. No deaths, no surprises.`,
-        video: "https://youtu.be/ZzPSGZT5ayI?si=z5oocrmSu-HXxmTI",
-        thumbImage: "images/game6-thumb.png",
-        previewImage: "images/script6-preview.png"
+        video: "https://youtu.be/ZzPSGZT5ayI",
+        thumbImage: "images/game6-thumb.png"
     }
 };
 
-let currentScriptCode = '';
-
 // ============================================
-// Utility Functions
-// ============================================
-
-/**
- * Validates if a string is a valid URL and from approved domain
- * @param {string} urlString - The URL to validate
- * @returns {boolean} True if valid
- */
-function isValidURL(urlString) {
-    try {
-        const url = new URL(urlString);
-        const protocol = url.protocol === 'http:' || url.protocol === 'https:';
-        const domain = VALID_DOMAINS.has(url.hostname) || url.hostname.endsWith('.vercel.app');
-        return protocol && domain;
-    } catch {
-        return false;
-    }
-}
-
-/**
- * Sanitizes text to prevent XSS
- * @param {string} text - Text to sanitize
- * @returns {string} Sanitized text
- */
-function sanitizeText(text) {
-    if (typeof text !== 'string') return '';
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-/**
- * Validates script ID
- * @param {any} id - The ID to validate
- * @returns {boolean} True if valid
- */
-function isValidScriptId(id) {
-    return Number.isInteger(id) && id > 0 && id <= 6;
-}
-
-// ============================================
-// Cursor Glow Effect
+// DOM Ready
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    const cursorGlow = document.querySelector('.cursor-glow');
-    
-    if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
-        let mouseX = 0, mouseY = 0;
-        let currentX = 0, currentY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-        
-        function animateCursor() {
-            currentX += (mouseX - currentX) * 0.1;
-            currentY += (mouseY - currentY) * 0.1;
-            cursorGlow.style.left = currentX + 'px';
-            cursorGlow.style.top = currentY + 'px';
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-    }
+    initNavbar();
+    initModal();
+    initCopyButtons();
+    initSmoothScroll();
 });
 
 // ============================================
-// Event Delegation for Modal Buttons
+// Navbar Scroll Effect
 // ============================================
 
-// Add click event listener to document (works even before DOMContentLoaded)
-document.addEventListener('click', (e) => {
-    const viewBtn = e.target.closest('.view-script-btn');
-    if (viewBtn) {
-        const scriptId = viewBtn.dataset.scriptId;
-        if (scriptId) {
-            const id = parseInt(scriptId, 10);
-            if (isValidScriptId(id)) {
-                e.preventDefault();
-                e.stopPropagation();
-                openModal(id);
-                return;
-            }
+function initNavbar() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+                ticking = false;
+            });
+            ticking = true;
         }
-    }
-    
-    // Handle modal close button
-    const closeBtn = e.target.closest('.modal-close');
-    if (closeBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        closeModal();
-        return;
-    }
-    
-    // Handle copy button
-    const copyBtn = e.target.closest('.copy-btn');
-    if (copyBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        copyScript(copyBtn);
-        return;
-    }
-    
-    // Handle hub copy button
-    const copyHubBtn = e.target.closest('.copy-hub-btn');
-    if (copyHubBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        copyHubScript(copyHubBtn);
-        return;
-    }
-}, true); // Use capture phase for reliability
+    }, { passive: true });
+}
 
 // ============================================
-// Modal Functions
+// Modal System
 // ============================================
 
-function openModal(scriptId) {
-     // Validate scriptId is a number
-     if (!isValidScriptId(scriptId)) return;
-     
-     const data = scriptsData[scriptId];
-     const overlay = document.getElementById('modalOverlay');
+function initModal() {
+    const overlay = document.getElementById('modalOverlay');
+    const modal = document.getElementById('scriptModal');
+    if (!overlay || !modal) return;
     
-    // Set modal content using textContent to prevent XSS injection
-    const modalTitle = document.getElementById('modalTitle');
-    const modalImage = document.getElementById('modalImage');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalScript = document.getElementById('modalScript');
-    
-    if (modalTitle) modalTitle.textContent = data.title;
-    if (modalImage) {
-        modalImage.src = sanitizeText(data.thumbImage);
-        modalImage.alt = sanitizeText(data.title);
-    }
-    if (modalDescription) modalDescription.textContent = data.description;
-    if (modalScript) modalScript.textContent = data.script;
-    
-    currentScriptCode = data.script;
-    
-    // Set badges - using textContent to prevent XSS
-    const badgesContainer = document.getElementById('modalBadges');
-    if (badgesContainer) {
-        badgesContainer.innerHTML = '';
-        data.badges.forEach((badge, index) => {
-            const span = document.createElement('span');
-            span.className = `badge ${data.badgeClasses[index]}`;
-            span.textContent = badge;
-            badgesContainer.appendChild(span);
+    // Open modal from script cards
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = parseInt(btn.dataset.scriptId, 10);
+            if (id && scriptsData[id]) {
+                openModal(id);
+            }
         });
+    });
+    
+    // Close modal
+    const closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
     }
     
-    // Set action buttons with proper URLs - validate URLs first
-    const keyBtn = document.getElementById('keySystemBtn');
-    const gameLink = document.getElementById('gameLink');
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
     
-    if (isValidURL(data.keySystem) && isValidURL(data.gameUrl)) {
-        keyBtn.href = data.keySystem;
-        keyBtn.onclick = (e) => {
-            e.preventDefault();
-            window.open(data.keySystem, '_blank', 'noopener,noreferrer');
-        };
-        
-        gameLink.href = data.gameUrl;
-        gameLink.onclick = (e) => {
-            e.preventDefault();
-            window.open(data.gameUrl, '_blank', 'noopener,noreferrer');
-        };
-    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+function openModal(id) {
+    const data = scriptsData[id];
+    if (!data) return;
     
-    // Set video if available
+    const overlay = document.getElementById('modalOverlay');
+    const modal = document.getElementById('scriptModal');
+    
+    // Populate modal
+    document.getElementById('modalImage').src = data.thumbImage;
+    document.getElementById('modalImage').alt = data.title;
+    document.getElementById('modalTitle').textContent = data.title;
+    document.getElementById('modalDescription').textContent = data.description;
+    document.getElementById('modalScript').textContent = data.script;
+    document.getElementById('keySystemBtn').href = data.keySystem;
+    document.getElementById('gameLink').href = data.gameUrl;
+    
+    // Badges
+    const badgesContainer = document.getElementById('modalBadges');
+    badgesContainer.innerHTML = data.badges.map(b => 
+        `<span class="badge">${escapeHtml(b)}</span>`
+    ).join('');
+    
+    // Video
     const videoSection = document.getElementById('modalVideo');
     const videoLink = document.getElementById('videoLink');
-    
-    if (data.video && isValidURL(data.video)) {
-        videoSection.style.display = 'block';
+    if (data.video) {
         videoLink.href = data.video;
+        videoSection.style.display = 'block';
     } else {
         videoSection.style.display = 'none';
     }
     
+    // Show modal
     overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    
+    // Focus trap
+    modal.querySelector('.modal-close').focus();
 }
 
 function closeModal() {
     const overlay = document.getElementById('modalOverlay');
     overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
 }
 
-// Close modal on overlay click or escape
-document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('modalOverlay');
-    
-    if (overlay) {
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                closeModal();
-            }
+// ============================================
+// Copy Functionality
+// ============================================
+
+function initCopyButtons() {
+    document.querySelectorAll('.code-block .copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const code = btn.closest('.code-block').querySelector('code');
+            if (code) copyToClipboard(code.textContent, btn);
         });
-    }
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeModal();
-    }
-});
-
-// ============================================
-// Copy Script Function
-// ============================================
-
-async function copyScript(button) {
-     // Use the button passed from event listener, or find it
-     const copyBtn = button || document.querySelector('.modal .copy-btn');
-     if (!copyBtn) return;
-     
-     try {
-         await navigator.clipboard.writeText(currentScriptCode);
-         showCopySuccess(copyBtn);
-     } catch {
-         // Fallback - use safer method
-         const textArea = document.createElement('textarea');
-         textArea.value = currentScriptCode;
-         // Use safe inline styles with proper escaping
-         textArea.style.position = 'fixed';
-         textArea.style.left = '-9999px';
-         textArea.setAttribute('aria-hidden', 'true');
-         document.body.appendChild(textArea);
-         textArea.select();
-         try {
-             document.execCommand('copy');
-             showCopySuccess(copyBtn);
-         } catch {
-             if (copyBtn.querySelector('span')) {
-                 copyBtn.querySelector('span').textContent = 'Error';
-             }
-         }
-         document.body.removeChild(textArea);
-     }
- }
-
-function showCopySuccess(btn) {
-    btn.classList.add('copied');
-    btn.querySelector('span').textContent = 'Copied!';
-    setTimeout(() => {
-        btn.classList.remove('copied');
-        btn.querySelector('span').textContent = 'Copy';
-    }, 2000);
+    });
 }
 
 function copyHubScript(btn) {
     const code = document.getElementById('hubScript');
-    if (!code) return;
-    
-    const textArea = document.createElement('textarea');
-    textArea.value = code.textContent;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-9999px';
-    textArea.style.top = '-9999px';
-    document.body.appendChild(textArea);
-    
+    if (code) copyToClipboard(code.textContent, btn);
+}
+
+async function copyToClipboard(text, btn) {
     try {
-        textArea.select();
-        if (document.execCommand('copy')) {
-            showCopySuccess(btn);
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+        } else {
+            // Fallback
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
         }
-    } catch (err) {
-        console.error('Failed to copy:', err);
-    } finally {
-        document.body.removeChild(textArea);
+        showCopyFeedback(btn, true);
+    } catch {
+        showCopyFeedback(btn, false);
     }
 }
 
-// ============================================
-// Smooth Scroll (only for internal anchors)
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-         anchor.addEventListener('click', function(e) {
-             const href = this.getAttribute('href');
-             // Only handle internal anchors that start with #
-             if (href && href.startsWith('#') && href.length > 1) {
-                 e.preventDefault();
-                 const targetId = href.substring(1);
-                 if (/^[a-zA-Z0-9_-]+$/.test(targetId)) {
-                     const target = document.getElementById(targetId);
-                     if (target) {
-                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                     }
-                 }
-             }
-         });
-     });
-});
+function showCopyFeedback(btn, success) {
+    const span = btn.querySelector('span');
+    const originalText = span.textContent;
+    
+    btn.classList.add('copied');
+    span.textContent = success ? 'Copied!' : 'Error';
+    
+    setTimeout(() => {
+        btn.classList.remove('copied');
+        span.textContent = originalText;
+    }, 2000);
+}
 
 // ============================================
-// Scroll Animations
+// Smooth Scroll
 // ============================================
 
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.script-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, index * 100);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    cards.forEach(card => observer.observe(card));
-});
-
-// ============================================
-// Navbar Effects
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-    
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }, { passive: true });
-});
-
-// ============================================
-// Particles Background
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('particleCanvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    
-    function createParticles() {
-        particles = [];
-        const count = Math.min(CONFIG.MAX_PARTICLES, Math.floor(window.innerWidth / 30));
-        for (let i = 0; i < count; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * (CONFIG.PARTICLE_MAX_SIZE - CONFIG.PARTICLE_MIN_SIZE) + CONFIG.PARTICLE_MIN_SIZE,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5,
-                opacity: Math.random() * 0.5 + 0.2
-            });
-        }
-    }
-    
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        particles.forEach(p => {
-            p.x += p.speedX;
-            p.y += p.speedY;
-            
-            if (p.x < 0) p.x = canvas.width;
-            if (p.x > canvas.width) p.x = 0;
-            if (p.y < 0) p.y = canvas.height;
-            if (p.y > canvas.height) p.y = 0;
-            
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(99, 102, 241, ${p.opacity})`;
-            ctx.fill();
-        });
-        
-        // Draw connections
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const p1 = particles[i];
-                const p2 = particles[j];
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                
-                if (dist < CONFIG.CONNECT_DISTANCE) {
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - dist / CONFIG.CONNECT_DISTANCE)})`;
-                    ctx.stroke();
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const href = anchor.getAttribute('href');
+            if (href && href.length > 1) {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }
-        }
-        
-        animationId = requestAnimationFrame(animate);
-    }
-    
-    resize();
-    createParticles();
-    animate();
-    
-    window.addEventListener('resize', () => {
-        resize();
-        createParticles();
-    });
-});
-
-// ============================================
-// Card Tilt Effect
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.matchMedia('(pointer: fine)').matches) {
-        document.querySelectorAll('.script-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
         });
-    }
-});
-
-// ============================================
-// Console Message & Performance
-// ============================================
-
-console.log('%c⚡ ElPro Scripts', 'color: #6366f1; font-size: 24px; font-weight: bold;');
-console.log('%cPremium Roblox Scripts Collection', 'color: #888; font-size: 14px;');
-
-// Performance monitoring
-if (window.performance && window.performance.mark) {
-    performance.mark('app-load-complete');
+    });
 }
 
-// Fallback: attach direct click listeners to view buttons in case delegation fails
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.view-script-btn').forEach(btn => {
-        if (btn.__hasViewListener) return;
-        btn.__hasViewListener = true;
-        btn.addEventListener('click', (e) => {
-            const scriptId = btn.dataset.scriptId;
-            if (!scriptId) return;
-            const id = parseInt(scriptId, 10);
-            if (!isValidScriptId(id)) return;
-            e.preventDefault();
-            openModal(id);
-        });
-    });
-    
-    // Verify no buttons are obstructed
-    setTimeout(() => {
-        document.querySelectorAll('.view-script-btn').forEach(btn => {
-            if (btn.offsetParent === null) {
-                console.warn('Button may be hidden:', btn);
-            }
-        });
-    }, 1000);
-});
+// ============================================
+// Utilities
+// ============================================
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Performance mark
+if (window.performance?.mark) {
+    performance.mark('app-loaded');
+}

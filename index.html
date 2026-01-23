@@ -4,682 +4,423 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="ElPro Scripts: Premium Roblox Scripts Hub. 6+ free scripts with key system. AutoFarm, Blade Ball AutoParry, Animal Simulator. Updated January 2026.">
-    <meta name="keywords" content="Roblox scripts, Roblox autofarm, Blade Ball script, free Roblox scripts, script hub, game automation, Roblox cheats">
+    <meta name="keywords" content="Roblox scripts, Roblox autofarm, Blade Ball script, free Roblox scripts, script hub, game automation">
     <meta name="author" content="ElPro Scripts">
-    <meta name="creator" content="ElPro Scripts">
-    <meta name="publisher" content="ElPro Scripts">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="theme-color" content="#0a0a0f">
+    <meta name="theme-color" content="#1a1a1f">
     <meta name="color-scheme" content="dark">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.work.ink https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com https://vercel.live; img-src 'self' data: https://vercel.com https://*.githubusercontent.com; connect-src 'self' https://cdn.vercel-insights.com https://vitals.vercel-insights.com https://vercel.live wss://*.vercel.live; frame-src https://vercel.live https://www.youtube.com; base-uri 'self'; form-action 'none'; upgrade-insecure-requests; block-all-mixed-content;">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Permissions-Policy" content="accelerometer=(), ambient-light-sensor=(), camera=(), clipboard-read=(), clipboard-write=(), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
     <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="ElPro Scripts | Premium Roblox Scripts Hub">
     <meta property="og:description" content="Free Roblox scripts. AutoFarm, AutoParry & more. PC tested. Updated Jan 2026.">
     <meta property="og:url" content="https://elpruscripts.vercel.app">
     <meta property="og:image" content="https://elpruscripts.vercel.app/images/og-image.png">
+    <meta property="og:site_name" content="ElPro Scripts">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ElPro Scripts | Premium Roblox Scripts Hub">
     <meta name="twitter:description" content="Free Roblox scripts. AutoFarm, AutoParry & more.">
-    <meta name="revisit-after" content="7 days">
-    <meta name="rating" content="general">
+    <meta name="twitter:image" content="https://elpruscripts.vercel.app/images/og-image.png">
+    
     <title>ElPro Scripts - Free Premium Roblox Scripts Hub | AutoFarm, AutoParry & More</title>
+    
     <link rel="canonical" href="https://elpruscripts.vercel.app/">
+    <link rel="icon" type="image/svg+xml" href="images/icon.svg">
+    <link rel="apple-touch-icon" href="images/icon.svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Fonts with display swap for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdn.vercel-insights.com">
-    <link rel="dns-prefetch" href="https://vitals.vercel-insights.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎮%3C/text%3E%3C/svg%3E">
-    <link rel="manifest" href="manifest.json">
-    <link rel="alternate" hreflang="en" href="https://elpruscripts.vercel.app/">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ElPro Scripts",
+        "url": "https://elpruscripts.vercel.app",
+        "description": "Premium Roblox Scripts Hub with free scripts for AutoFarm, AutoParry and more.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://elpruscripts.vercel.app/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 </head>
 <body>
-    <canvas id="particleCanvas" class="particle-canvas"></canvas>
-    <div class="cursor-glow"></div>
-    <div class="bg-animation">
-        <div class="bg-gradient"></div>
-        <div class="bg-grid"></div>
-        <div class="floating-orbs">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
-            <div class="orb orb-4"></div>
-        </div>
-    </div>
+    <!-- Minimal Background -->
+    <div class="bg-pattern" aria-hidden="true"></div>
 
-    <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">⚡</span>
+            <a href="/" class="logo" aria-label="ElPro Scripts Home">
+                <span class="logo-icon" aria-hidden="true">⚡</span>
                 <span class="logo-text">ElPro<span class="accent">Scripts</span></span>
-            </div>
+            </a>
             <div class="nav-links">
-                <a href="#script-hub" class="nav-link">Script Hub</a>
+                <a href="#hub" class="nav-link">Hub</a>
                 <a href="#scripts" class="nav-link">Scripts</a>
                 <a href="#help" class="nav-link">Help</a>
-                <a href="#support" class="nav-link">Support</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="badge-dot"></span>
-                <span>Premium Scripts Collection</span>
-            </div>
-            <h1 class="hero-title">
-                <span class="title-line">Unlock Your</span>
-                <span class="title-line gradient-text">Gaming Potential</span>
-            </h1>
-            <p class="hero-description">
-                High-quality, regularly updated scripts for your favorite Roblox games. 
-                Fast, reliable, and easy to use with clean Rayfield UI.
-            </p>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">6+</span>
-                    <span class="stat-label">Active Scripts</span>
+    <main>
+        <!-- Hero Section -->
+        <header class="hero" id="top">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot" aria-hidden="true"></span>
+                    <span>Premium Scripts Collection</span>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Free Access</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Updates</span>
-                </div>
-            </div>
-            <a href="#scripts" class="cta-button">
-                <span>Explore Scripts</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                </svg>
-            </a>
-        </div>
-        <div class="hero-visual">
-            <div class="code-window">
-                <div class="window-header">
-                    <div class="window-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+                <h1 class="hero-title">
+                    <span class="title-line">Unlock Your</span>
+                    <span class="title-line gradient-text">Gaming Potential</span>
+                </h1>
+                <p class="hero-description">
+                    High-quality, regularly updated scripts for Roblox games. 
+                    Fast, reliable, and easy to use with clean Rayfield UI.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Active Scripts</span>
                     </div>
-                    <span class="window-title">executor.lua</span>
-                </div>
-                <div class="window-content">
-                    <pre><code><span class="code-keyword">loadstring</span>(<span class="code-function">game:HttpGet</span>(<span class="code-string">"..."</span>))()</code></pre>
-                    <div class="typing-indicator">
-                        <span></span><span></span><span></span>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Free Access</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Updates</span>
                     </div>
                 </div>
+                <a href="#scripts" class="cta-button">
+                    <span>Explore Scripts</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
             </div>
-        </div>
-    </header>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-dots" aria-hidden="true">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <span class="window-title">executor.lua</span>
+                    </div>
+                    <div class="window-content">
+                        <pre><code><span class="code-keyword">loadstring</span>(<span class="code-function">game:HttpGet</span>(<span class="code-string">"..."</span>))()</code></pre>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-    <!-- Master Sensei HUB Section -->
-    <section class="script-hub-section" id="script-hub">
-        <div class="hub-container">
-            <!-- Header -->
-            <div class="hub-header">
-                <div class="hub-badge-premium">
-                    <span class="badge-crown">👑</span>
-                    <span>MASTER SENSEI HUB</span>
-                </div>
-                <h2 class="hub-main-title">Universal Script <span class="gradient-text">Hub</span></h2>
-                <p class="hub-tagline">One key to rule them all — 12-hour access across every supported game</p>
-            </div>
-
-            <!-- Main Hub Card -->
-            <div class="hub-main-card">
-                <div class="hub-card-glow"></div>
-                
-                <!-- Games Showcase -->
-                <div class="hub-games-showcase">
-                    <div class="hub-game-item" data-game="scp">
-                        <img src="images/game5-thumb.png" alt="SCP Roleplay" loading="lazy">
-                        <div class="game-overlay">
-                            <span class="game-name">SCP Roleplay</span>
-                            <span class="game-tag pc-only">PC ONLY</span>
-                        </div>
+        <!-- Master Sensei HUB Section -->
+        <section class="hub-section" id="hub" aria-labelledby="hub-title">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="hub-badge">
+                        <span aria-hidden="true">👑</span>
+                        <span>MASTER SENSEI HUB</span>
                     </div>
-                    <div class="hub-game-item" data-game="uma">
-                        <img src="images/game3-thumb.png" alt="Uma Racing" loading="lazy">
-                        <div class="game-overlay">
-                            <span class="game-name">Uma Racing</span>
-                        </div>
-                    </div>
-                    <div class="hub-game-item" data-game="blade">
-                        <img src="images/game4-thumb.png" alt="Blade Ball" loading="lazy">
-                        <div class="game-overlay">
-                            <span class="game-name">Blade Ball</span>
-                        </div>
-                    </div>
-                    <div class="hub-game-item" data-game="lucky">
-                        <img src="images/game1-thumb.png" alt="Break a Lucky Block" loading="lazy">
-                        <div class="game-overlay">
-                            <span class="game-name">Lucky Block</span>
-                        </div>
-                    </div>
-                    <div class="hub-game-item" data-game="animal">
-                        <img src="images/game2-thumb.png" alt="Animal Simulator" loading="lazy">
-                        <div class="game-overlay">
-                            <span class="game-name">Animal Sim</span>
-                        </div>
-                    </div>
-                    <div class="hub-game-item" data-game="shawarma">
-                        <img src="images/game6-thumb.png" alt="Scary Shawarma Kiosk" loading="lazy">
-                        <div class="game-overlay">
-                            <span class="game-name">Shawarma</span>
-                            <span class="game-tag pc-only">NEW</span>
-                        </div>
-                    </div>
+                    <h2 class="section-title" id="hub-title">Universal Script <span class="gradient-text">Hub</span></h2>
+                    <p class="section-subtitle">One key to rule them all — 12-hour access across every supported game</p>
                 </div>
 
-                <!-- Hub Info -->
-                <div class="hub-info-section">
-                    <div class="hub-features-grid">
+                <div class="hub-card">
+                    <!-- Games Grid -->
+                    <div class="hub-games">
+                        <div class="hub-game">
+                            <img src="images/game5-thumb.png" alt="SCP Roleplay" width="120" height="80" loading="lazy">
+                            <span class="game-label">SCP</span>
+                        </div>
+                        <div class="hub-game">
+                            <img src="images/game3-thumb.png" alt="Uma Racing" width="120" height="80" loading="lazy">
+                            <span class="game-label">Uma Racing</span>
+                        </div>
+                        <div class="hub-game">
+                            <img src="images/game4-thumb.png" alt="Blade Ball" width="120" height="80" loading="lazy">
+                            <span class="game-label">Blade Ball</span>
+                        </div>
+                        <div class="hub-game">
+                            <img src="images/game1-thumb.png" alt="Lucky Block" width="120" height="80" loading="lazy">
+                            <span class="game-label">Lucky Block</span>
+                        </div>
+                        <div class="hub-game">
+                            <img src="images/game2-thumb.png" alt="Animal Simulator" width="120" height="80" loading="lazy">
+                            <span class="game-label">Animal Sim</span>
+                        </div>
+                        <div class="hub-game">
+                            <img src="images/game6-thumb.png" alt="Shawarma" width="120" height="80" loading="lazy">
+                            <span class="game-label">Shawarma</span>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="hub-features">
                         <div class="hub-feature">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
-                                </svg>
-                            </div>
-                            <div class="feature-text">
-                                <h4>One Universal Key</h4>
-                                <p>Single key works for all games</p>
-                            </div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                            </svg>
+                            <span>One Universal Key</span>
                         </div>
                         <div class="hub-feature">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
-                            </div>
-                            <div class="feature-text">
-                                <h4>12-Hour Access</h4>
-                                <p>Extended session duration</p>
-                            </div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            <span>12-Hour Access</span>
                         </div>
                         <div class="hub-feature">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Safe & Tested</h4>
-                                <p>All scripts PC tested</p>
-                            </div>
-                        </div>
-                        <div class="hub-feature">
-                            <div class="feature-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                    <polyline points="22,6 12,13 2,6"/>
-                                </svg>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Regular Updates</h4>
-                                <p>Always up-to-date scripts</p>
-                            </div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <span>Safe & Tested</span>
                         </div>
                     </div>
 
-                    <!-- Warning Note -->
-                    <div class="hub-warning">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                            <line x1="12" y1="9" x2="12" y2="13"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                        <span>First run may crash – just re-execute the script</span>
-                    </div>
-
-                    <!-- Script Code Box -->
+                    <!-- Script Box -->
                     <div class="hub-script-box">
-                        <div class="script-box-header">
-                            <div class="script-box-dots">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                            </div>
-                            <span class="script-box-title">hub_loader.lua</span>
-                        </div>
-                        <div class="script-box-content">
-                            <code id="hubScript">loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/f98e7348c2c764ad0714cd1b13b18a3b/raw/bee01d83b23a9f4e31cd3b5437abd72d077fffb4/gistfile1.txt"))()</code>
-                            <button class="copy-hub-btn" aria-label="Copy hub script">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                                </svg>
-                                <span>Copy Script</span>
-                            </button>
-                        </div>
+                        <code id="hubScript">loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/0d19e1fb7a13adc4d5bc0fc6b5fae99a/raw/2fc29b75a01efd41acf53a4e58cf6de6d6f8acf7/Master%2520Sensei"))()</code>
+                        <button class="copy-btn" onclick="copyHubScript(this)" aria-label="Copy script code">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
                     </div>
 
                     <!-- Action Buttons -->
-                    <div class="hub-action-buttons">
-                        <a href="https://work.ink/2e7s/master-sensei-hub-key" target="_blank" rel="noopener noreferrer" class="hub-btn hub-btn-primary">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <div class="hub-actions">
+                        <a href="https://work.ink/2e7s/master-sensei-key-generator" target="_blank" rel="noopener noreferrer" class="hub-btn primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
                             </svg>
-                            <span>Get Universal Key</span>
+                            <span>Get Key</span>
                         </a>
-                        <a href="https://www.youtube.com/watch?v=ZzPSGZT5ayI&t=125s" target="_blank" rel="noopener noreferrer" class="hub-btn hub-btn-youtube">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        <a href="https://www.youtube.com/watch?v=ZzPSGZT5ayI" target="_blank" rel="noopener noreferrer" class="hub-btn secondary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                                <path fill="#1a1a1f" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
-                            <span>Watch Tutorial</span>
+                            <span>Tutorial</span>
                         </a>
                     </div>
+
+                    <p class="hub-note">First run may crash – just re-execute the script</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Supported Games List -->
-            <div class="hub-games-list">
-                <h3>All Supported Games</h3>
-                <div class="games-tags">
-                    <span class="game-tag-item">
-                        <span class="tag-icon">🔓</span>
-                        <span>SCP Roleplay</span>
-                        <span class="tag-badge">PC ONLY</span>
-                    </span>
-                    <span class="game-tag-item">
-                        <span class="tag-icon">🏎️</span>
-                        <span>Uma Racing</span>
-                    </span>
-                    <span class="game-tag-item">
-                        <span class="tag-icon">⚔️</span>
-                        <span>Blade Ball</span>
-                    </span>
-                    <span class="game-tag-item">
-                        <span class="tag-icon">📦</span>
-                        <span>Break a Lucky Block</span>
-                    </span>
-                    <span class="game-tag-item">
-                        <span class="tag-icon">🦁</span>
-                        <span>Animal Simulator</span>
-                    </span>
-                    <span class="game-tag-item">
-                        <span class="tag-icon">🔥</span>
-                        <span>Scary Shawarma Kiosk</span>
-                        <span class="tag-badge">NEW</span>
-                    </span>
+        <!-- Scripts Section -->
+        <section class="scripts-section" id="scripts" aria-labelledby="scripts-title">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title" id="scripts-title">Individual <span class="gradient-text">Scripts</span></h2>
+                    <p class="section-subtitle">Premium scripts for specific games</p>
+                </div>
+
+                <div class="scripts-grid">
+                    <!-- Script 1 -->
+                    <article class="script-card" data-script="1">
+                        <div class="card-image">
+                            <img src="images/game1-thumb.png" alt="Break a Lucky Block" width="400" height="225" loading="lazy">
+                            <div class="card-badges">
+                                <span class="badge new">NEW</span>
+                                <span class="badge">PC TESTED</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Break a Lucky Block</h3>
+                            <p class="card-status"><span class="status-dot"></span>Working - Beta</p>
+                            <p class="card-desc">Underground AutoFarm, noclip, auto-collection, stealth mode.</p>
+                            <div class="card-tags">
+                                <span>AutoFarm</span>
+                                <span>Stealth</span>
+                                <span>Teleports</span>
+                            </div>
+                            <button class="view-btn" data-script-id="1"><span>View Script</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Script 2 -->
+                    <article class="script-card" data-script="2">
+                        <div class="card-image">
+                            <img src="images/game2-thumb.png" alt="Animal Simulator" width="400" height="225" loading="lazy">
+                            <div class="card-badges">
+                                <span class="badge updated">UPDATED</span>
+                                <span class="badge">PC TESTED</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Animal Simulator</h3>
+                            <p class="card-status"><span class="status-dot"></span>Working</p>
+                            <p class="card-desc">Auto Coins, Egg Farm, Christmas Mission TPs, Boss TPs.</p>
+                            <div class="card-tags">
+                                <span>AutoFarm</span>
+                                <span>Christmas</span>
+                                <span>Hitbox</span>
+                            </div>
+                            <button class="view-btn" data-script-id="2"><span>View Script</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Script 3 -->
+                    <article class="script-card" data-script="3">
+                        <div class="card-image">
+                            <img src="images/game3-thumb.png" alt="Uma Racing" width="400" height="225" loading="lazy">
+                            <div class="card-badges">
+                                <span class="badge">SIMPLE</span>
+                                <span class="badge">PC TESTED</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Uma Racing</h3>
+                            <p class="card-status"><span class="status-dot"></span>Working</p>
+                            <p class="card-desc">Infinite Stamina - Never run out of energy!</p>
+                            <div class="card-tags">
+                                <span>Stamina</span>
+                                <span>Simple</span>
+                            </div>
+                            <button class="view-btn" data-script-id="3"><span>View Script</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Script 4 -->
+                    <article class="script-card" data-script="4">
+                        <div class="card-image">
+                            <img src="images/game4-thumb.png" alt="Blade Ball" width="400" height="225" loading="lazy">
+                            <div class="card-badges">
+                                <span class="badge beta">BETA</span>
+                                <span class="badge">PC TESTED</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Blade Ball</h3>
+                            <p class="card-status"><span class="status-dot"></span>Working - Beta</p>
+                            <p class="card-desc">AutoParry Beta - precision timing, hitbox visualizer.</p>
+                            <div class="card-tags">
+                                <span>AutoParry</span>
+                                <span>Hitbox</span>
+                                <span>Safe</span>
+                            </div>
+                            <button class="view-btn" data-script-id="4"><span>View Script</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Script 5 -->
+                    <article class="script-card" data-script="5">
+                        <div class="card-image">
+                            <img src="images/game5-thumb.png" alt="SCP Roleplay" width="400" height="225" loading="lazy">
+                            <div class="card-badges">
+                                <span class="badge beta">BETA</span>
+                                <span class="badge">PC TESTED</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">SCP: Roleplay</h3>
+                            <p class="card-status"><span class="status-dot"></span>Working - Beta</p>
+                            <p class="card-desc">ESP, Hitbox Expander, Custom Crosshair, QoL tools.</p>
+                            <div class="card-tags">
+                                <span>ESP</span>
+                                <span>Hitbox</span>
+                                <span>Crosshair</span>
+                            </div>
+                            <button class="view-btn" data-script-id="5"><span>View Script</span></button>
+                        </div>
+                    </article>
+
+                    <!-- Script 6 -->
+                    <article class="script-card" data-script="6">
+                        <div class="card-image">
+                            <img src="images/game6-thumb.png" alt="Scary Shawarma Kiosk" width="400" height="225" loading="lazy">
+                            <div class="card-badges">
+                                <span class="badge new">NEW</span>
+                                <span class="badge">PC TESTED</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Scary Shawarma Kiosk</h3>
+                            <p class="card-status"><span class="status-dot"></span>Working</p>
+                            <p class="card-desc">Anomaly detection, auto-revive, fly, anti-AFK.</p>
+                            <div class="card-tags">
+                                <span>Detection</span>
+                                <span>Auto-Revive</span>
+                                <span>Fly</span>
+                            </div>
+                            <button class="view-btn" data-script-id="6"><span>View Script</span></button>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="notice-section" id="support">
-        <div class="notice-card">
-            <div class="notice-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 16v-4M12 8h.01"/>
-                </svg>
+        <!-- Help Section -->
+        <section class="help-section" id="help" aria-labelledby="help-title">
+            <div class="section-container">
+                <div class="help-card">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <path d="M12 17h.01"/>
+                    </svg>
+                    <h3 id="help-title">Need Help Getting the Key?</h3>
+                    <p>Watch this quick video tutorial to understand how the key system works!</p>
+                    <a href="https://www.youtube.com/watch?v=ZzPSGZT5ayI" target="_blank" rel="noopener noreferrer" class="help-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                            <path fill="#1a1a1f" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <span>Watch Tutorial</span>
+                    </a>
+                </div>
             </div>
-            <div class="notice-content">
-                <h3>Support Notice</h3>
-                <p>
-                    To keep these scripts <strong>free forever</strong>, we use a simple ad-redirect system. 
-                    You'll need to complete <strong>3 quick redirects</strong> to access each script. 
-                    We know it can be a bit tedious, but it's the only way we can maintain and update these scripts without charging you. 
-                    <strong>Thank you so much for your support!</strong> 💙
-                </p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section class="scripts-section" id="scripts">
-        <div class="section-header">
-            <h2 class="section-title">Featured <span class="gradient-text">Scripts</span></h2>
-            <p class="section-subtitle">Click on any script to view details and get access</p>
-        </div>
-
-        <div class="scripts-grid">
-            <!-- Script 1: Break a Lucky Block -->
-            <article class="script-card" data-script="1">
-                <div class="card-glow"></div>
-                <div class="card-image-container">
-                    <img 
-                        src="images/game1-thumb.png" 
-                        alt="Break a Lucky Block" 
-                        class="card-image primary-image"
-                    >
-                    <img 
-                        src="images/script1-preview.png" 
-                        alt="Script Preview" 
-                        class="card-image secondary-image"
-                    >
-                    <div class="image-indicator">
-                        <span class="indicator-dot active"></span>
-                        <span class="indicator-dot"></span>
-                    </div>
-                    <div class="card-badges">
-                        <span class="badge badge-new">NEWEST</span>
-                        <span class="badge badge-beta">BETA</span>
-                        <span class="badge badge-key">KEY REQUIRED</span>
-                        <span class="badge badge-pc">PC TESTED</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Break a Lucky Block</h3>
-                    <p class="card-status">
-                        <span class="status-dot working"></span>
-                        Working - Beta Version
-                    </p>
-                    <p class="card-description">
-                        Fully underground AutoFarm with Noclip, anti-stuck detection, and stealth mode. 
-                        Features clean Rayfield UI with panic key support.
-                    </p>
-                    <div class="card-features">
-                        <span class="feature-tag">AutoFarm</span>
-                        <span class="feature-tag">Noclip</span>
-                        <span class="feature-tag">Stealth</span>
-                        <span class="feature-tag">Teleports</span>
-                    </div>
-                    <button class="view-script-btn" data-script-id="1">
-                        <span>View Script</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Script 2: Animal Simulator -->
-            <article class="script-card" data-script="2">
-                <div class="card-glow"></div>
-                <div class="card-image-container">
-                    <img 
-                        src="images/game2-thumb.png" 
-                        alt="Animal Simulator" 
-                        class="card-image primary-image"
-                    >
-                    <img 
-                        src="images/script2-preview.png" 
-                        alt="Script Preview" 
-                        class="card-image secondary-image"
-                    >
-                    <div class="image-indicator">
-                        <span class="indicator-dot active"></span>
-                        <span class="indicator-dot"></span>
-                    </div>
-                    <div class="card-badges">
-                        <span class="badge badge-updated">UPDATED</span>
-                        <span class="badge badge-christmas">CHRISTMAS 🎄</span>
-                        <span class="badge badge-key">KEY REQUIRED</span>
-                        <span class="badge badge-pc">PC TESTED</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Animal Simulator</h3>
-                    <p class="card-status">
-                        <span class="status-dot working"></span>
-                        Working - Christmas Update
-                    </p>
-                    <p class="card-description">
-                        Complete Christmas Autofarm 2025/2026 with Rayfield GUI. 
-                        Auto coins, egg farm, boss TPs, and Christmas mission support.
-                    </p>
-                    <div class="card-features">
-                        <span class="feature-tag">Auto Coins</span>
-                        <span class="feature-tag">Egg Farm</span>
-                        <span class="feature-tag">Boss TPs</span>
-                        <span class="feature-tag">Hitbox</span>
-                    </div>
-                    <button class="view-script-btn" data-script-id="2">
-                        <span>View Script</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Script 3: Uma Racing -->
-            <article class="script-card" data-script="3">
-                <div class="card-glow"></div>
-                <div class="card-image-container">
-                    <img 
-                        src="images/game3-thumb.png" 
-                        alt="Uma Racing" 
-                        class="card-image primary-image"
-                    >
-                    <img 
-                        src="images/script3-preview.png" 
-                        alt="Script Preview" 
-                        class="card-image secondary-image"
-                    >
-                    <div class="image-indicator">
-                        <span class="indicator-dot active"></span>
-                        <span class="indicator-dot"></span>
-                    </div>
-                    <div class="card-badges">
-                        <span class="badge badge-simple">SIMPLE</span>
-                        <span class="badge badge-key">KEY REQUIRED</span>
-                        <span class="badge badge-pc">PC TESTED</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Uma Racing</h3>
-                    <p class="card-status">
-                        <span class="status-dot working"></span>
-                        Working - Simple & Effective
-                    </p>
-                    <p class="card-description">
-                        Simple but powerful infinite stamina script. 
-                        Works on Xeno, Solara, and all major executors.
-                    </p>
-                    <div class="card-features">
-                        <span class="feature-tag">Infinite Stamina</span>
-                        <span class="feature-tag">All Executors</span>
-                    </div>
-                    <button class="view-script-btn" data-script-id="3">
-                        <span>View Script</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Script 4: Blade Ball -->
-            <article class="script-card" data-script="4">
-                <div class="card-glow"></div>
-                <div class="card-image-container">
-                    <img 
-                        src="images/game4-thumb.png" 
-                        alt="Blade Ball" 
-                        class="card-image primary-image"
-                    >
-                    <img 
-                        src="images/script4-preview.png" 
-                        alt="Script Preview" 
-                        class="card-image secondary-image"
-                    >
-                    <div class="image-indicator">
-                        <span class="indicator-dot active"></span>
-                        <span class="indicator-dot"></span>
-                    </div>
-                    <div class="card-badges">
-                        <span class="badge badge-beta">BETA</span>
-                        <span class="badge badge-pc">PC TESTED</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Blade Ball</h3>
-                    <p class="card-status">
-                        <span class="status-dot working"></span>
-                        Working - Beta Version
-                    </p>
-                    <p class="card-description">
-                        AUTOPARRY BETA V1 — Precision auto parry: real ball detection, hitbox visualizer, human-like input simulation, and lightweight UI.
-                    </p>
-                    <div class="card-features">
-                        <span class="feature-tag">AutoParry</span>
-                        <span class="feature-tag">Hitbox Viz</span>
-                        <span class="feature-tag">Safe Input</span>
-                        <span class="feature-tag">Lightweight</span>
-                    </div>
-                    <button class="view-script-btn" data-script-id="4">
-                        <span>View Script</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Script 5: SCP: Roleplay -->
-            <article class="script-card" data-script="5">
-                <div class="card-glow"></div>
-                <div class="card-image-container">
-                    <img 
-                        src="images/game5-thumb.png" 
-                        alt="SCP: Roleplay" 
-                        class="card-image primary-image"
-                    >
-                    <img 
-                        src="images/script5-preview.png" 
-                        alt="Script Preview" 
-                        class="card-image secondary-image"
-                    >
-                    <div class="image-indicator">
-                        <span class="indicator-dot active"></span>
-                        <span class="indicator-dot"></span>
-                    </div>
-                    <div class="card-badges">
-                        <span class="badge badge-beta">BETA</span>
-                        <span class="badge badge-pc">PC TESTED</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">SCP: Roleplay</h3>
-                    <p class="card-status">
-                        <span class="status-dot working"></span>
-                        Working - Beta Version
-                    </p>
-                    <p class="card-description">
-                        SCP:RP Ultimate – Advanced Tools Menu (BETA ACCESS). ESP, Hitbox Expander, Custom Crosshair, and Quality-of-Life tools.
-                    </p>
-                    <div class="card-features">
-                        <span class="feature-tag">ESP</span>
-                        <span class="feature-tag">Hitbox Expander</span>
-                        <span class="feature-tag">Crosshair</span>
-                        <span class="feature-tag">QoL</span>
-                    </div>
-                    <button class="view-script-btn" data-script-id="5">
-                        <span>View Script</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Script 6: Scary Shawarma Kiosk -->
-            <article class="script-card" data-script="6">
-                <div class="card-glow"></div>
-                <div class="card-image-container">
-                    <img 
-                        src="images/game6-thumb.png" 
-                        alt="Scary Shawarma Kiosk" 
-                        class="card-image primary-image"
-                    >
-                    <img 
-                        src="images/script6-preview.png" 
-                        alt="Script Preview" 
-                        class="card-image secondary-image"
-                    >
-                    <div class="image-indicator">
-                        <span class="indicator-dot active"></span>
-                        <span class="indicator-dot"></span>
-                    </div>
-                    <div class="card-badges">
-                        <span class="badge badge-new">NEW</span>
-                        <span class="badge badge-pc">PC TESTED</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Scary Shawarma Kiosk</h3>
-                    <p class="card-status">
-                        <span class="status-dot working"></span>
-                        Working - Premium Version
-                    </p>
-                    <p class="card-description">
-                        Shawarma Dominator v2.0 - Real-time anomaly detection, model preview, infinite auto-revive, smooth fly, and anti-AFK.
-                    </p>
-                    <div class="card-features">
-                        <span class="feature-tag">Anomaly Detection</span>
-                        <span class="feature-tag">Model Preview</span>
-                        <span class="feature-tag">Auto-Revive</span>
-                        <span class="feature-tag">Fly</span>
-                    </div>
-                    <button class="view-script-btn" data-script-id="6">
-                        <span>View Script</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="help-section" id="help">
-        <div class="help-card">
-            <div class="help-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                    <path d="M12 17h.01"/>
-                </svg>
-            </div>
-            <h3>Need Help Getting the Key?</h3>
-            <p>Watch this quick video tutorial to understand how the key system works!</p>
-            <a href="https://www.youtube.com/watch?v=ZzPSGZT5ayI" target="_blank" rel="noopener noreferrer" class="youtube-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-                <span>Watch Tutorial</span>
-            </a>
-        </div>
-    </section>
-
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-logo">
-                <span class="logo-icon">⚡</span>
+                <span class="logo-icon" aria-hidden="true">⚡</span>
                 <span class="logo-text">ElPro<span class="accent">Scripts</span></span>
             </div>
-            <p class="footer-text">Premium Roblox Scripts • Updated Regularly • Free Forever</p>
-            <p class="footer-disclaimer">
-                This website is not affiliated with Roblox Corporation. 
-                Use scripts at your own risk.
-            </p>
+            <p>Premium Roblox Scripts • Updated Regularly • Free Forever</p>
+            <p class="disclaimer">This website is not affiliated with Roblox Corporation. Use scripts at your own risk.</p>
         </div>
     </footer>
 
     <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="modal" id="scriptModal">
             <button class="modal-close" aria-label="Close modal">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
             </button>
             <div class="modal-header">
-                <img src="" alt="" class="modal-image" id="modalImage">
-                <div class="modal-title-section">
+                <img src="" alt="" class="modal-image" id="modalImage" width="80" height="80">
+                <div class="modal-info">
                     <h2 class="modal-title" id="modalTitle"></h2>
                     <div class="modal-badges" id="modalBadges"></div>
                 </div>
@@ -692,24 +433,24 @@
                     <div class="code-block">
                         <pre><code id="modalScript"></code></pre>
                         <button class="copy-btn" aria-label="Copy script code">
-                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                             </svg>
-                             <span>Copy</span>
-                         </button>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
                     </div>
                 </div>
 
                 <div class="modal-actions">
                     <a href="#" class="action-btn primary" id="keySystemBtn" target="_blank" rel="noopener noreferrer">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
                         </svg>
                         <span>Get Key</span>
                     </a>
                     <a href="#" class="action-btn secondary" id="gameLink" target="_blank" rel="noopener noreferrer">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                             <polyline points="15 3 21 3 21 9"/>
                             <line x1="10" y1="14" x2="21" y2="3"/>
@@ -719,27 +460,18 @@
                 </div>
 
                 <div class="modal-video" id="modalVideo" style="display: none;">
-                    <h4>Video Tutorial</h4>
                     <a href="" class="video-link" id="videoLink" target="_blank" rel="noopener noreferrer">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                            <path fill="#1a1a1f" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
-                        <span>Watch Tutorial/Showcase</span>
+                        <span>Watch Tutorial</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Ad Redirect Script -->
-    <script src="https://cdn.work.ink/js/redirect.js?id=2666" data-url="https://work.ink/direct/2666" data-max="3" defer></script>
-    
-    <!-- Vercel Web Analytics -->
-    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
-    
-    <!-- Vercel Speed Insights -->
-    <script defer src="https://vitals.vercel-insights.com/v1/vitals.js"></script>
-    
     <script src="script.js" defer></script>
 </body>
 </html>

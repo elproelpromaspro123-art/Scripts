@@ -1,6 +1,7 @@
-User-Agent: *
+User-agent: *
 Allow: /
-Allow: /images/
-Disallow: /admin/
-Disallow: /.git/
-Sitemap: https://elpruscripts.vercel.app/sitemap.xml
+
+Sitemap: https://elproscripts.vercel.app/sitemap.xml
+
+# Optimized for search engines
+# ElPro Scripts - Premium Roblox Scripts Hub
