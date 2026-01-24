@@ -256,30 +256,12 @@ function copyHubScript(btn) {
     if (code) copyToClipboard(code.textContent, btn);
 }
 
-async function copyToClipboard(text, btn) {
-    try {
-        if (navigator.clipboard && window.isSecureContext) {
-            try {
-                await navigator.clipboard.writeText(text);
-                showCopyFeedback(btn, true);
-            } catch (clipboardErr) {
-                // Clipboard API blocked by permissions policy, use fallback
-                copyToClipboardFallback(text, btn);
-            }
-        } else {
-            // Fallback for non-secure contexts
-            copyToClipboardFallback(text, btn);
-        }
-    } catch {
-        showCopyFeedback(btn, false);
-    }
-}
-
-function copyToClipboardFallback(text, btn) {
+function copyToClipboard(text, btn) {
+    // Use fallback method (execCommand) - most reliable across all contexts
     try {
         const textarea = document.createElement('textarea');
         textarea.value = text;
-        textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0';
+        textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;pointer-events:none';
         document.body.appendChild(textarea);
         textarea.select();
         const success = document.execCommand('copy');
