@@ -119,6 +119,29 @@ Features:
 Control the game. No deaths, no surprises.`,
         video: "https://youtu.be/ZzPSGZT5ayI",
         thumbImage: "images/game6-thumb.png"
+    },
+    7: {
+        title: "Survive Zombie Arena",
+        gameUrl: "https://www.roblox.com/es/games/114204398207377/Survive-Zombie-Arena#ropro-quick-play",
+        script: 'loadstring(game:HttpGet("https://gist.githubusercontent.com/elproelpromaspro123-art/0e6a67f2b1b7c190bf167ec35c0fdc04/raw/dcdc1462986d1f68c3e94e369120fb20ce6a1775/gistfile1.txt"))()',
+        keySystem: "https://work.ink/2e7s/survive-zombie-arena-key-generator",
+        badges: ["NEW", "BETA", "PC TESTED"],
+        description: `Survive Zombie Arena Hub v1.0
+
+A clean, feature-focused script for enhanced gameplay and efficiency.
+
+Core Features:
+
+• ESP Zombies – Displays enemy distance and range for better awareness
+• Auto Farm Mines – Auto Kill Zombies With Mine
+• Auto Shoot / Triggerbot – Precise aiming and firing automation
+• Auto Aim – Assisted targeting for consistent accuracy
+• Float + Noclip – Vertical movement and obstacle bypass via keybinds
+• Panic Key (U) – Instant disable + teleport to safe zone
+
+First execute can crash but just re-execute`,
+        video: null,
+        thumbImage: "images/game7-thumb.png"
     }
 };
 
