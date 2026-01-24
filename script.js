@@ -259,18 +259,32 @@ function copyHubScript(btn) {
 async function copyToClipboard(text, btn) {
     try {
         if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(text);
+            try {
+                await navigator.clipboard.writeText(text);
+                showCopyFeedback(btn, true);
+            } catch (clipboardErr) {
+                // Clipboard API blocked by permissions policy, use fallback
+                copyToClipboardFallback(text, btn);
+            }
         } else {
-            // Fallback
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px';
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
+            // Fallback for non-secure contexts
+            copyToClipboardFallback(text, btn);
         }
-        showCopyFeedback(btn, true);
+    } catch {
+        showCopyFeedback(btn, false);
+    }
+}
+
+function copyToClipboardFallback(text, btn) {
+    try {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        const success = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showCopyFeedback(btn, success);
     } catch {
         showCopyFeedback(btn, false);
     }
